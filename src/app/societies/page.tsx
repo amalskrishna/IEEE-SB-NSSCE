@@ -67,9 +67,20 @@ export default function SocietiesPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-ieee-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
                   <div className="relative z-10 flex flex-col h-full">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mb-6 ${society.accentColor} shadow-md`}>
-                      {society.shortName}
-                    </div>
+                    {society.logo ? (
+                      <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-md border-2 border-slate-100 overflow-hidden p-2">
+                        <img 
+                          src={society.logo} 
+                          alt={society.shortName} 
+                          className="w-full h-full object-contain pointer-events-none"
+                          style={{ transform: society.logoRotation }}
+                        />
+                      </div>
+                    ) : (
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mb-6 ${society.accentColor} shadow-md`}>
+                        {society.shortName}
+                      </div>
+                    )}
                     
                     <h3 className="font-heading font-bold text-2xl leading-tight mb-4 group-hover:text-ieee-blue transition-colors">
                       {society.name}

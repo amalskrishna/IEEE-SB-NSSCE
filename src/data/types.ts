@@ -8,6 +8,7 @@ export interface Society {
   mission: string;
   accentColor: string;
   logo: string;
+  logoRotation?: string;
   heroImage?: string;
 }
 

@@ -20,19 +20,30 @@ export default async function SocietyDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="min-h-screen pb-20">
       {/* Hero Banner */}
-      <div className={`relative pt-32 pb-20 w-full overflow-hidden flex items-center min-h-[60vh] ${society.accentColor.replace('bg-', 'bg-').replace('500', '900').replace('600', '950')} text-white`}>
+      <div className={`relative pt-32 pb-20 w-full overflow-hidden flex items-center min-h-[60vh] ${society.accentColor} text-white`}>
         {/* Dynamic Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-slate-950/40" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px]" />
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-20 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+          <div className="absolute inset-0 bg-slate-950/80" />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${society.accentColor} opacity-30 rounded-full blur-[120px] mix-blend-screen`} />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-30 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         </div>
         
         <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <div className={`w-24 h-24 rounded-3xl ${society.accentColor} flex items-center justify-center text-3xl font-heading font-black mb-8 shadow-2xl shadow-black/50 border border-white/20`}>
-              {society.shortName}
-            </div>
+            {society.logo ? (
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-3xl bg-white flex items-center justify-center mb-8 shadow-2xl shadow-black/50 border-4 border-white/20 overflow-hidden p-3 md:p-4">
+                <img 
+                  src={society.logo} 
+                  alt={society.name} 
+                  className="w-full h-full object-contain"
+                  style={{ transform: society.logoRotation }}
+                />
+              </div>
+            ) : (
+              <div className={`w-24 h-24 rounded-3xl ${society.accentColor} flex items-center justify-center text-3xl font-heading font-black mb-8 shadow-2xl shadow-black/50 border border-white/20 text-white`}>
+                {society.shortName}
+              </div>
+            )}
             
             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
               {society.name}
@@ -74,18 +85,20 @@ export default async function SocietyDetailPage({ params }: { params: Promise<{ 
             </section>
 
             {/* Events */}
-            {societyEvents.length > 0 && (
-              <section>
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-3xl font-heading font-bold flex items-center gap-3">
-                    <span className={`w-2 h-8 rounded-full inline-block ${society.accentColor}`}></span>
-                    Chapter Events
-                  </h2>
+            <section>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-heading font-bold flex items-center gap-3">
+                  <span className={`w-2 h-8 rounded-full inline-block ${society.accentColor}`}></span>
+                  Chapter Events
+                </h2>
+                {societyEvents.length > 0 && (
                   <Link href={`/events?society=${society.id}`} className="text-ieee-blue font-semibold hover:underline hidden md:block">
                     View All Events
                   </Link>
-                </div>
-                
+                )}
+              </div>
+              
+              {societyEvents.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {societyEvents.map((event) => (
                     <Link key={event.id} href={`/events/${event.slug}`} className="group">
@@ -107,22 +120,44 @@ export default async function SocietyDetailPage({ params }: { params: Promise<{ 
                     </Link>
                   ))}
                 </div>
-              </section>
-            )}
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-60">
+                  {[1, 2].map((i) => (
+                    <div key={`placeholder-event-${i}`} className="h-full p-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 flex flex-col relative overflow-hidden pointer-events-none">
+                      <div className="flex items-center gap-2 text-sm text-slate-400 mb-3 font-medium">
+                        <Calendar size={16} />
+                        Date TBA
+                      </div>
+                      <h3 className="font-heading font-bold text-lg mb-2 text-slate-600 line-clamp-2">
+                        {society.shortName} Upcoming Event
+                      </h3>
+                      <p className="text-slate-500 text-sm line-clamp-2 mb-4 flex-grow">
+                        Exciting activities are being planned. More details about this event will be published here soon.
+                      </p>
+                      <div className="text-sm font-bold text-slate-400 flex items-center mt-auto">
+                        Coming Soon
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
 
             {/* Team Preview */}
-            {societyMembers.length > 0 && (
-              <section>
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-3xl font-heading font-bold flex items-center gap-3">
-                    <span className={`w-2 h-8 rounded-full inline-block ${society.accentColor}`}></span>
-                    Leadership Team
-                  </h2>
+            <section>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-heading font-bold flex items-center gap-3">
+                  <span className={`w-2 h-8 rounded-full inline-block ${society.accentColor}`}></span>
+                  Leadership Team
+                </h2>
+                {societyMembers.length > 0 && (
                   <Link href="/team" className="text-ieee-blue font-semibold hover:underline hidden md:block">
                     View Full Directory
                   </Link>
-                </div>
-                
+                )}
+              </div>
+              
+              {societyMembers.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {societyMembers.map((member) => (
                     <div key={member.id} className="p-6 rounded-2xl border border-pale-silver bg-white text-center flex flex-col items-center">
@@ -134,8 +169,20 @@ export default async function SocietyDetailPage({ params }: { params: Promise<{ 
                     </div>
                   ))}
                 </div>
-              </section>
-            )}
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 opacity-60">
+                  {['Chairperson', 'Vice Chair', 'Secretary'].map((position, i) => (
+                    <div key={`placeholder-member-${i}`} className="p-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 text-center flex flex-col items-center pointer-events-none">
+                      <div className="w-20 h-20 rounded-full bg-slate-200 mb-4 flex items-center justify-center text-slate-400">
+                        <Users size={32} />
+                      </div>
+                      <h4 className="font-heading font-bold text-lg text-slate-600">Name TBA</h4>
+                      <p className="text-sm font-medium text-slate-500">{position}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
           </div>
 
           {/* Sidebar */}

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MouseEvent as ReactMouseEvent } from "react";
 
 export default function Hero() {
-  const headingText = "IEEE Student Branch NSSCE";
+  const headingText = "IEEE Student Branch\nNSSCE";
   const letters = Array.from(headingText);
 
   const container: Variants = {
@@ -116,15 +116,18 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {letters.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={child}
-              className={letter === " " ? "inline-block w-[0.3em]" : "inline-block text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/70"}
-            >
-              {letter}
-            </motion.span>
-          ))}
+          {letters.map((letter, index) => {
+            if (letter === '\n') return <br key={index} />;
+            return (
+              <motion.span
+                key={index}
+                variants={child}
+                className={letter === " " ? "inline-block w-[0.3em]" : "inline-block text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/70"}
+              >
+                {letter}
+              </motion.span>
+            );
+          })}
         </motion.h1>
 
         {/* Subheading */}

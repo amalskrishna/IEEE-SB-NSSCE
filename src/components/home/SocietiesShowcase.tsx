@@ -54,25 +54,27 @@ export default function SocietiesShowcase() {
             <div className={itemClass}>
                <div 
                  style={{ transform: `rotate(${-angle}deg)` }}
-                 className="w-12 h-12 md:w-16 md:h-16 -ml-6 -mt-6 md:-ml-8 md:-mt-8"
+                 className="w-12 h-12 md:w-16 md:h-16 -ml-6 -mt-6 md:-ml-8 md:-mt-8 pointer-events-auto"
                  onMouseEnter={() => !isTouchDevice && setActiveNode(node)}
                  onMouseLeave={() => !isTouchDevice && setActiveNode(null)}
                >
                  <Link 
                    href={node.isViewAll ? "/societies" : `/societies/${node.slug}`} 
                    onClick={(e) => handleNodeClick(e, node)}
-                   className="block w-full h-full outline-none focus:ring-2 focus:ring-ieee-blue rounded-full"
+                   className="block w-full h-full outline-none focus:ring-2 focus:ring-ieee-blue rounded-full touch-pan-y"
                  >
                    <motion.div 
                      whileHover={{ scale: 1.15 }}
                      className={`w-full h-full rounded-full flex items-center justify-center shadow-lg transition-all duration-300 relative overflow-hidden group ${
                        node.isViewAll 
                        ? 'bg-white border-2 border-dashed border-ieee-blue text-ieee-blue' 
-                       : `bg-white border-2 border-white text-white ${node.accentColor || 'bg-ieee-blue'}`
+                       : `bg-white border-2 border-white ${node.logo ? '' : 'text-white'} ${node.logo ? '' : node.accentColor || 'bg-ieee-blue'}`
                      }`}
                    >
                      {node.isViewAll ? (
                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform md:w-5 md:h-5" />
+                     ) : node.logo ? (
+                       <img src={node.logo} alt={node.shortName} draggable={false} style={{ transform: node.logoRotation }} className="w-8 h-8 md:w-10 md:h-10 object-contain z-10 pointer-events-none" />
                      ) : (
                        <span className="font-bold text-[11px] md:text-base tracking-wider z-10">{node.shortName}</span>
                      )}
@@ -115,7 +117,7 @@ export default function SocietiesShowcase() {
         </div>
 
         {/* Orbit Interactive Visualization */}
-        <div className="relative w-full max-w-3xl mx-auto h-[420px] md:h-[650px] flex items-center justify-center orbit-wrapper mt-8 md:mt-12">
+        <div className="relative w-full max-w-3xl mx-auto h-[420px] md:h-[650px] flex items-center justify-center orbit-wrapper mt-8 md:mt-12 touch-pan-y">
           
           <style dangerouslySetInnerHTML={{ __html: `
             :root {
@@ -169,12 +171,12 @@ export default function SocietiesShowcase() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(var(--orbit-radius-outer)*2)] h-[calc(var(--orbit-radius-outer)*2)] rounded-full border border-dashed border-ieee-blue/20"></div>
 
           {/* Inner Nodes */}
-          <div className="absolute inset-0 orbit-container-inner">
+          <div className="absolute inset-0 orbit-container-inner pointer-events-none">
              {renderNodes(innerNodes, true)}
           </div>
           
           {/* Outer Nodes */}
-          <div className="absolute inset-0 orbit-container-outer">
+          <div className="absolute inset-0 orbit-container-outer pointer-events-none">
              {renderNodes(outerNodes, false)}
           </div>
 
@@ -203,9 +205,15 @@ export default function SocietiesShowcase() {
                      </>
                    ) : (
                      <>
-                       <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white font-bold mb-1 md:mb-2 shadow-inner text-[10px] md:text-base ${activeNode.accentColor}`}>
-                          {activeNode.shortName}
-                       </div>
+                       {activeNode.logo ? (
+                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1 md:mb-2 shadow-inner bg-white p-2 border border-slate-100">
+                           <img src={activeNode.logo} alt={activeNode.shortName} style={{ transform: activeNode.logoRotation }} className="w-full h-full object-contain pointer-events-none" />
+                         </div>
+                       ) : (
+                         <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white font-bold mb-1 md:mb-2 shadow-inner text-[10px] md:text-base ${activeNode.accentColor}`}>
+                            {activeNode.shortName}
+                         </div>
+                       )}
                        <h3 className="font-bold text-[11px] md:text-base leading-tight mb-1 md:mb-2 text-slate-900 px-1">{activeNode.name}</h3>
                        <p className="text-[9px] md:text-xs text-slate-600 line-clamp-3 md:line-clamp-4 px-1 leading-snug">
                          {activeNode.description}
