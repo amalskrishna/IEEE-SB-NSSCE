@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { societies } from "@/data/societies";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pin } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function SocietiesShowcase() {
@@ -95,6 +95,40 @@ export default function SocietiesShowcase() {
       {/* Background decorations */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-ieee-blue/5 rounded-full blur-3xl -z-10"></div>
       
+      {/* Sticky Note: Vision (Desktop only) */}
+      <motion.div 
+        initial={{ opacity: 0, x: -50, rotate: -5 }}
+        whileInView={{ opacity: 1, x: 0, rotate: -3 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="hidden lg:block absolute top-1/4 left-8 xl:left-16 w-56 xl:w-64 bg-yellow-100/90 backdrop-blur-sm p-6 shadow-xl z-20 border border-yellow-200/50"
+        style={{ borderRadius: "2px 15px 2px 15px" }}
+      >
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-red-500/80">
+          <Pin size={24} fill="currentColor" className="drop-shadow-md" />
+        </div>
+        <h3 className="font-heading font-bold text-lg text-yellow-900 mb-2">IEEE Vision</h3>
+        <p className="text-sm text-yellow-800 font-medium leading-relaxed italic">
+          "IEEE will be essential to the global technical community... and be universally recognized for the contributions of technology in improving global conditions."
+        </p>
+      </motion.div>
+
+      {/* Sticky Note: Mission (Desktop only) */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50, rotate: 5 }}
+        whileInView={{ opacity: 1, x: 0, rotate: 4 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="hidden lg:block absolute bottom-24 right-8 xl:right-16 w-56 xl:w-64 bg-sky-50/90 backdrop-blur-sm p-6 shadow-xl z-20 border border-sky-100/50"
+        style={{ borderRadius: "15px 2px 15px 2px" }}
+      >
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-slate-500/80">
+          <Pin size={24} fill="currentColor" className="drop-shadow-md" />
+        </div>
+        <h3 className="font-heading font-bold text-lg text-sky-900 mb-2">IEEE Mission</h3>
+        <p className="text-sm text-sky-800 font-medium leading-relaxed italic">
+          "IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity."
+        </p>
+      </motion.div>
+
       <div className="container mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <div className="text-center mt-8 mb-10 md:mb-16">
           <motion.h2 

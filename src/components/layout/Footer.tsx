@@ -1,5 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+
+// Replace this URL with your deployed Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyUZY4TFKqADJWWXvSoUeAILKBmBhcM8XUlnwag3LUoLlAImr_3uNvv3UKySL5ELFcu/exec";
 
 const SocialIcon = ({ name }: { name: string }) => {
   if (name === "linkedin") return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
@@ -10,6 +17,38 @@ const SocialIcon = ({ name }: { name: string }) => {
 }
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !GOOGLE_SCRIPT_URL) {
+      if (!GOOGLE_SCRIPT_URL) alert("Google Script URL is not set up yet.");
+      return;
+    }
+    
+    setStatus("loading");
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("timestamp", new Date().toISOString());
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      });
+
+      setStatus("success");
+      setEmail("");
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
+  };
+
   return (
     <footer className="relative bg-gradient-to-b from-white via-sky-100/50 to-sky-400 pt-20 pb-10 overflow-hidden border-none -mt-[1px]">
       {/* Animated gradient background snippet */}
@@ -34,20 +73,26 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <h4 className="font-semibold text-sm uppercase tracking-wider text-ieee-blue">Stay Updated</h4>
-              <form className="flex gap-2 max-w-md">
+              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-white border border-pale-silver rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === "loading" || status === "success"}
+                  className="flex-1 bg-white border border-pale-silver rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan disabled:opacity-50"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-ieee-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-ieee-blue/90 transition-colors"
+                  disabled={status === "loading" || status === "success"}
+                  className="bg-ieee-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-ieee-blue/90 transition-colors disabled:opacity-50 min-w-[100px] flex items-center justify-center"
                 >
-                  Subscribe
+                  {status === "loading" ? "..." : status === "success" ? "Done!" : "Subscribe"}
                 </button>
               </form>
+              {status === "success" && <p className="text-xs text-green-600 font-medium mt-1">Thanks for subscribing!</p>}
+              {status === "error" && <p className="text-xs text-red-600 font-medium mt-1">Something went wrong. Try again.</p>}
             </div>
           </div>
 

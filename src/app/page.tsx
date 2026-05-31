@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col overflow-hidden">
       <Hero />
-      <Marquee text="IEEE SB NSSCE ✨ INNOVATING SINCE 1987" bgColor="bg-sky-200" />
+      <Marquee text="IEEE SB NSSCE ✦ INNOVATING SINCE 1987" bgColor="bg-sky-200" />
       <SocietiesShowcase />
-      <Marquee text="IEEE SB NSSCE ✨ INNOVATING SINCE 1987" bgColor="bg-sky-200" direction="right" rotate="rotate-2" />
+      <Marquee text="IEEE SB NSSCE ✦ INNOVATING SINCE 1987" bgColor="bg-sky-200" direction="right" rotate="rotate-2" />
       <UpcomingEvents />
       <AboutSection />
       <AchievementsPreview />
