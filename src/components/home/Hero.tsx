@@ -123,9 +123,8 @@ export default function Hero() {
         <div className="flex flex-col gap-6">
           {[
             { icon: Users, value: "150+", label: "Active Members" },
-            { icon: Calendar, value: "25+", label: "Events Every Year" },
-            { icon: Trophy, value: "10+", label: "Awards & Recognitions" },
-            { icon: Globe, value: "Global", label: "IEEE Network" }
+            { icon: Calendar, value: "50+", label: "Events Every Year" },
+            { icon: Trophy, value: "10+", label: "Awards & Recognitions" }
           ].map((stat, idx) => (
             <div key={idx} className="flex items-center gap-5 group cursor-default">
               <div className="w-14 h-14 rounded-full bg-white border border-sky-100 flex items-center justify-center text-[#00629b] flex-shrink-0 shadow-md group-hover:bg-gradient-to-br group-hover:from-[#00629b] group-hover:to-[#004f7c] group-hover:text-white group-hover:shadow-[0_8px_16px_-4px_rgba(0,98,155,0.4)] group-hover:scale-105 transition-all duration-300">
@@ -176,51 +175,50 @@ export default function Hero() {
           {/* Flying Birds Flock (Bound to image container) */}
           <motion.div
             animate={{ x: ["-10vw", "70vw"], y: ["10vh", "2vh", "12vh"] }}
-            whileHover={{}} // Triggers children whileHover when hovering the flock area
             transition={{
               x: { duration: 45, repeat: Infinity, ease: "linear" },
               y: { duration: 18, repeat: Infinity, ease: "easeInOut", repeatType: "mirror" }
             }}
-            className="absolute top-[10%] left-0 w-32 h-32 opacity-60 text-[#2d3748] cursor-pointer -z-10"
+            className="absolute top-[10%] left-0 w-32 h-32 opacity-60 text-[#2d3748] pointer-events-none -z-10"
           >
             {/* Bird 1 */}
-            <motion.div className="absolute top-0 left-0" animate={{ y: [0, -5, 0] }} whileHover={{ x: -30, y: -40, rotate: -15, scale: 1.2, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+            <motion.div className="absolute top-0 left-0" animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
               <motion.svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.3, 1] }} transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 2 */}
-            <motion.div className="absolute top-5 left-8" animate={{ y: [0, -8, 0] }} whileHover={{ x: -20, y: 30, rotate: -35, scale: 1.1, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
+            <motion.div className="absolute top-5 left-8" animate={{ y: [0, -8, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
               <motion.svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.4, 1] }} transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 3 */}
-            <motion.div className="absolute top-8 left-2" animate={{ y: [0, -6, 0] }} whileHover={{ x: 10, y: -30, rotate: 20, scale: 0.9, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+            <motion.div className="absolute top-8 left-2" animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
               <motion.svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.3, 1] }} transition={{ duration: 0.65, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 4 */}
-            <motion.div className="absolute top-12 left-10" animate={{ y: [0, -4, 0] }} whileHover={{ x: 30, y: 20, rotate: 30, scale: 1.2, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 2.1, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}>
+            <motion.div className="absolute top-12 left-10" animate={{ y: [0, -4, 0] }} transition={{ duration: 2.1, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}>
               <motion.svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.5, 1] }} transition={{ duration: 0.55, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 5 */}
-            <motion.div className="absolute top-[-8px] left-14" animate={{ y: [0, -6, 0] }} whileHover={{ x: -10, y: -50, rotate: -10, scale: 1.3, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}>
+            <motion.div className="absolute top-[-8px] left-14" animate={{ y: [0, -6, 0] }} transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}>
               <motion.svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.35, 1] }} transition={{ duration: 0.62, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 6 */}
-            <motion.div className="absolute top-16 left-[-4px]" animate={{ y: [0, -3, 0] }} whileHover={{ x: -40, y: -10, rotate: -45, scale: 0.8, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 2.3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}>
+            <motion.div className="absolute top-16 left-[-4px]" animate={{ y: [0, -3, 0] }} transition={{ duration: 2.3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}>
               <motion.svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.45, 1] }} transition={{ duration: 0.58, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
             </motion.div>
             {/* Bird 7 */}
-            <motion.div className="absolute top-7 left-16" animate={{ y: [0, -5, 0] }} whileHover={{ x: 40, y: -20, rotate: 25, scale: 1.1, transition: { type: "spring", stiffness: 300 } }} transition={{ duration: 2.0, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}>
+            <motion.div className="absolute top-7 left-16" animate={{ y: [0, -5, 0] }} transition={{ duration: 2.0, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}>
               <motion.svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" animate={{ scaleY: [1, 0.4, 1] }} transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}>
                 <path d="M2 12 Q 7 5 12 12 Q 17 5 22 12" strokeLinecap="round" strokeLinejoin="round" />
               </motion.svg>
@@ -228,7 +226,7 @@ export default function Hero() {
           </motion.div>
 
           <img
-            src="https://sb-dataset.vercel.app/chapters/nss.png"
+            src="https://sb-dataset.vercel.app/hero/NSS.png"
             alt="NSSCE Campus"
             className="relative w-full h-auto max-h-[48vh] md:max-h-[52vh] object-contain object-bottom drop-shadow-2xl scale-110 md:scale-[1.15] origin-bottom [mask-image:linear-gradient(to_bottom,black_97%,transparent_100%)] z-10 pointer-events-none"
           />

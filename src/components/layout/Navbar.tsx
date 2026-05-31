@@ -40,13 +40,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 z-50 relative">
-          <div className={cn("w-8 h-8 rounded-md flex items-center justify-center text-white font-bold", isDarkHeader && !scrolled ? "bg-white text-ieee-blue" : "bg-ieee-blue")}>
-            I
-          </div>
-          <span className={cn("font-heading font-bold text-lg tracking-tight", scrolled ? "text-ieee-blue" : (isDarkHeader ? "text-white" : "text-foreground"))}>
-            IEEE SB NSSCE
-          </span>
+        <Link href="/" className="flex items-center z-50 relative">
+          <img 
+            src="/logo.png" 
+            alt="IEEE SB NSSCE Logo" 
+            className="h-7 md:h-8 w-auto object-contain drop-shadow-sm transition-transform hover:scale-105" 
+          />
         </Link>
 
         {/* Desktop Nav & Join Button */}
