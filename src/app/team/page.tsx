@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, Pin } from "lucide-react";
 import { members } from "@/data/members";
 import { societies } from "@/data/societies";
 
@@ -29,7 +29,11 @@ export default function TeamPage() {
 
   const tabs = [
     { id: "execom", name: "SB ExeCom" },
-    ...societies.map(s => ({ id: s.id, name: s.shortName }))
+    ...societies.map(s => ({ id: s.id, name: s.shortName })),
+    { id: "web-team", name: "Web Team" },
+    { id: "media-team", name: "Media Team" },
+    { id: "design-team", name: "Design Team" },
+    { id: "content-team", name: "Content Team" }
   ];
 
   const filteredMembers = members.filter(member => {
@@ -47,6 +51,33 @@ export default function TeamPage() {
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-50">
           <div className="w-[800px] h-[800px] bg-ieee-blue/5 rounded-full blur-[100px]" />
         </div>
+
+        {/* Sticky Note Quote (Desktop only) */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="hidden xl:block absolute top-10 right-10 2xl:right-20 z-20"
+        >
+          <motion.div
+            animate={{ rotate: [3, -1, 3] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            whileHover={{ rotate: 3, transition: { duration: 0.2 } }}
+            className="w-72 bg-amber-50/90 backdrop-blur-sm p-6 shadow-xl border border-amber-200/50 cursor-pointer hover:shadow-2xl transition-shadow"
+            style={{ borderRadius: "15px 2px 15px 2px", transformOrigin: "top center" }}
+          >
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-slate-500/80">
+              <Pin size={24} fill="currentColor" className="drop-shadow-md" />
+            </div>
+            <p className="text-sm text-slate-800 font-medium leading-relaxed italic mb-3">
+              "Leadership is not about titles or positions; it's about the actions we take and the impact we make."
+            </p>
+            <p className="text-xs text-slate-500 font-semibold text-right">
+              - Ramon De la Cruz<br/>
+              <span className="font-normal text-[10px] uppercase tracking-wider">IEEE Engineering Leadership</span>
+            </p>
+          </motion.div>
+        </motion.div>
         
         <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 text-center">
           <motion.h1 
