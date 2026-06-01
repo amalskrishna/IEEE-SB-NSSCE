@@ -3,19 +3,16 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronLeft, ChevronRight, Pin } from "lucide-react";
+import Image from "next/image";
 import { members } from "@/data/members";
 import { societies } from "@/data/societies";
 
-const SocialIcon = ({ name }: { name: string }) => {
-  if (name === "linkedin") return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
-  if (name === "github") return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
-  return null;
-}
+
 
 export default function TeamPage() {
   const [activeTab, setActiveTab] = useState<string>("execom");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2026);
   const tabsRef = useRef<HTMLDivElement>(null);
 
   const scrollTabs = (direction: 'left' | 'right') => {
@@ -39,8 +36,8 @@ export default function TeamPage() {
   const filteredMembers = members.filter(member => {
     const matchesTab = member.societyId === activeTab;
     const matchesYear = member.year === selectedYear;
-    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          member.position.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      member.position.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesTab && matchesYear && matchesSearch;
   });
 
@@ -53,7 +50,7 @@ export default function TeamPage() {
         </div>
 
         {/* Sticky Note Quote (Desktop only) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -73,21 +70,21 @@ export default function TeamPage() {
               "Leadership is not about titles or positions; it's about the actions we take and the impact we make."
             </p>
             <p className="text-xs text-slate-500 font-semibold text-right">
-              - Ramon De la Cruz<br/>
+              - Ramon De la Cruz<br />
               <span className="font-normal text-[10px] uppercase tracking-wider">IEEE Engineering Leadership</span>
             </p>
           </motion.div>
         </motion.div>
-        
+
         <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-heading font-bold mb-6"
           >
             Meet the <span className="text-gradient">Team</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -104,7 +101,7 @@ export default function TeamPage() {
           {/* Search and Year Controls */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-2xl">
             {/* Year Selector */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
@@ -122,7 +119,7 @@ export default function TeamPage() {
             </motion.div>
 
             {/* Search Bar */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -142,21 +139,21 @@ export default function TeamPage() {
           </div>
 
           {/* Tabs Container with Arrows */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="w-full relative flex items-center"
           >
             {/* Left Arrow */}
-            <button 
+            <button
               onClick={() => scrollTabs('left')}
               className="absolute left-0 z-10 w-8 h-full bg-gradient-to-r from-slate-50 to-transparent flex items-center justify-start text-muted-foreground hover:text-ieee-blue transition-colors focus:outline-none hidden md:flex"
             >
               <ChevronLeft size={24} className="bg-white rounded-full shadow-sm" />
             </button>
 
-            <div 
+            <div
               ref={tabsRef}
               className="w-full overflow-x-auto pb-4 pt-1 no-scrollbar md:px-8"
             >
@@ -167,9 +164,8 @@ export default function TeamPage() {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                        isActive ? "text-ieee-blue" : "text-muted-foreground hover:text-foreground hover:bg-slate-100"
-                      }`}
+                      className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${isActive ? "text-ieee-blue" : "text-muted-foreground hover:text-foreground hover:bg-slate-100"
+                        }`}
                     >
                       <span className="relative z-10">{tab.name}</span>
                       {isActive && (
@@ -186,7 +182,7 @@ export default function TeamPage() {
             </div>
 
             {/* Right Arrow */}
-            <button 
+            <button
               onClick={() => scrollTabs('right')}
               className="absolute right-0 z-10 w-8 h-full bg-gradient-to-l from-slate-50 to-transparent flex items-center justify-end text-muted-foreground hover:text-ieee-blue transition-colors focus:outline-none hidden md:flex"
             >
@@ -213,30 +209,42 @@ export default function TeamPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className="group relative bg-white rounded-3xl p-6 border border-pale-silver/50 hover:border-ieee-blue/30 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center overflow-hidden"
+                className="group relative rounded-3xl p-[1.5px] shadow-lg shadow-sky-900/5 hover:shadow-2xl hover:shadow-ieee-blue/20 transition-all duration-500 transform hover:-translate-y-2 flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ieee-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Gradient Border Wrapper */}
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-100 to-sky-50 group-hover:from-ieee-blue group-hover:to-accent-cyan rounded-3xl transition-colors duration-500" />
                 
-                {/* Photo Placeholder */}
-                <div className="w-32 h-32 rounded-full bg-slate-100 border-4 border-white shadow-md mb-6 relative overflow-hidden flex items-center justify-center text-4xl text-slate-300 font-bold">
-                  {member.name.charAt(0)}
-                </div>
+                {/* Inner Card Content */}
+                <div className="relative w-full h-full bg-white rounded-[22px] overflow-hidden flex flex-col items-center text-center z-10 pt-6 pb-6 px-6">
+                  {/* Decorative Top Banner */}
+                  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-sky-50 via-sky-100 to-white opacity-80 group-hover:from-sky-100 group-hover:to-sky-50 transition-colors duration-500" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-ieee-blue/5 rounded-bl-full -z-0 group-hover:scale-110 transition-transform duration-500" />
 
-                <h3 className="font-heading font-bold text-xl mb-1">{member.name}</h3>
-                <p className="text-ieee-blue text-sm font-medium mb-6">{member.position}</p>
+                  {/* Photo with Gradient Ring */}
+                  <div className="relative z-10 mt-6 mb-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-ieee-blue to-accent-cyan rounded-full animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                    <div className="p-[3px] rounded-full bg-gradient-to-br from-slate-200 to-slate-100 group-hover:from-ieee-blue group-hover:to-accent-cyan transition-all duration-500 relative z-10">
+                      <div className="w-36 h-36 rounded-full border-[3px] border-white bg-slate-50 relative overflow-hidden flex items-center justify-center text-4xl text-slate-300 font-bold shadow-inner">
+                        {member.photo ? (
+                          <Image
+                            src={member.photo}
+                            alt={member.name}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        ) : (
+                          member.name.charAt(0)
+                        )}
+                      </div>
+                    </div>
+                  </div>
 
-                {/* Social Links that slide up on hover */}
-                <div className="mt-auto flex items-center gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-muted-foreground hover:text-ieee-blue hover:bg-ieee-blue/10 transition-colors">
-                      <SocialIcon name="linkedin" />
-                    </a>
-                  )}
-                  {member.github && (
-                    <a href={member.github} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-muted-foreground hover:text-ieee-blue hover:bg-ieee-blue/10 transition-colors">
-                      <SocialIcon name="github" />
-                    </a>
-                  )}
+                  <div className="relative z-10 flex flex-col items-center flex-grow">
+                    <h3 className="font-heading font-bold text-xl mb-1 text-slate-800 group-hover:text-ieee-blue transition-colors duration-300">{member.name}</h3>
+                    <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-sky-50 text-ieee-blue text-[11px] font-bold uppercase tracking-wider mb-2 group-hover:bg-ieee-blue group-hover:text-white transition-colors duration-300">
+                      {member.position}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
