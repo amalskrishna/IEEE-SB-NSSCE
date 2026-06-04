@@ -18,16 +18,16 @@ export default function UpcomingEvents() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-heading font-bold mb-4"
+              className="text-4xl md:text-5xl font-heading font-black mb-8 text-slate-900"
             >
-              Upcoming <span className="text-gradient">Events</span>
+              Upcoming <span className="relative inline-block"><span className="relative z-10 text-white">Events</span><span className="absolute -bottom-1 left-0 w-full h-full bg-ieee-blue -z-0 -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" /></span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground"
+              className="text-slate-800 font-medium text-lg"
             >
               Join us for our upcoming workshops, hackathons, and technical talks to level up your skills.
             </motion.p>
@@ -40,11 +40,11 @@ export default function UpcomingEvents() {
           >
             <Link
               href="/events"
-              className="inline-flex items-center gap-2 text-ieee-blue font-medium hover:text-ieee-blue/80 transition-colors group"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-[#FFD700] border-2 border-black rounded-xl text-black font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all group"
             >
               View Full Calendar
-              <span className="w-8 h-8 rounded-full bg-ieee-blue/10 flex items-center justify-center group-hover:bg-ieee-blue group-hover:text-white transition-colors">
-                <ArrowUpRight size={16} />
+              <span className="w-8 h-8 rounded-full bg-black text-[#FFD700] flex items-center justify-center transition-colors">
+                <ArrowUpRight size={18} className="stroke-[3px]" />
               </span>
             </Link>
           </motion.div>
@@ -60,20 +60,19 @@ export default function UpcomingEvents() {
               transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
               className="group h-full flex"
             >
-              <div className="bg-white rounded-2xl border border-pale-silver overflow-hidden shadow-sm hover:shadow-xl hover:shadow-ieee-blue/10 transition-all duration-300 w-full flex flex-col relative transform hover:-translate-y-2">
+              <div className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative">
                 {/* Image Banner Container */}
-                <div className="relative h-48 w-full bg-slate-100 overflow-hidden">
+                <div className="relative h-48 w-full bg-slate-100 rounded-lg border-2 border-black overflow-hidden mb-5">
                   <div className="absolute inset-0 bg-ieee-blue/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                    {/* Placeholder for actual next/image */}
-                    <span className="font-heading text-ieee-blue/50 font-bold text-xl">{event.title.substring(0, 2)}</span>
+                    <span className="font-heading text-slate-800/40 font-black text-4xl uppercase px-4 text-center leading-none">{event.title.substring(0, 15)}</span>
                   </div>
 
-                  <div className="absolute top-4 left-4 z-10 flex gap-2">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-ieee-blue text-xs font-bold rounded-full uppercase tracking-wide">
+                  <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-2">
+                    <span className="px-3 py-1.5 bg-white text-black text-xs font-bold rounded-lg uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
                       {event.societyId}
                     </span>
                     {event.status === 'featured' && (
-                      <span className="px-3 py-1 bg-accent-cyan/90 backdrop-blur-sm text-ieee-blue text-xs font-bold rounded-full uppercase tracking-wide">
+                      <span className="px-3 py-1.5 bg-[#FFD700] text-black text-xs font-bold rounded-lg uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
                         Featured
                       </span>
                     )}
@@ -81,38 +80,38 @@ export default function UpcomingEvents() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="font-heading font-bold text-xl mb-3 line-clamp-2 group-hover:text-ieee-blue transition-colors">
+                <div className="flex flex-col flex-grow">
+                  <h3 className="font-heading font-black text-2xl mb-3 line-clamp-2 text-slate-900 leading-tight">
                     {event.title}
                   </h3>
 
-                  <div className="space-y-2 mb-6 mt-auto">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <CalendarIcon size={16} className="mr-2 text-ieee-blue/70" />
+                  <div className="space-y-3 mb-6 mt-auto bg-slate-50 border-2 border-black rounded-lg p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex items-center text-sm text-slate-900 font-bold">
+                      <CalendarIcon size={18} className="mr-3 text-ieee-blue" />
                       {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       {' • '}
                       {new Date(event.date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
                     </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin size={16} className="mr-2 text-ieee-blue/70" />
+                    <div className="flex items-center text-sm text-slate-900 font-bold">
+                      <MapPin size={18} className="mr-3 text-ieee-blue" />
                       <span className="line-clamp-1">{event.venue}</span>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-pale-silver/50 flex items-center justify-between">
+                  <div className="pt-2 flex items-center justify-between">
                     <div className="flex -space-x-2">
                       {/* Fake attendees avatars */}
                       {[1, 2, 3].map(i => (
-                        <div key={`event-avatar-${event.id}-${i}`} className="w-8 h-8 rounded-full bg-slate-200 border-2 border-white" />
+                        <div key={`event-avatar-${event.id}-${i}`} className="w-8 h-8 rounded-full bg-slate-200 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" />
                       ))}
-                      <div className="w-8 h-8 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-[10px] font-medium text-slate-500">
+                      <div className="w-8 h-8 rounded-full bg-slate-100 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[10px] font-black text-slate-800 z-10">
                         +42
                       </div>
                     </div>
 
                     <Link
                       href={`/events/${event.slug}`}
-                      className="text-sm font-semibold text-ieee-blue px-4 py-2 rounded-lg bg-ieee-blue/5 hover:bg-ieee-blue/10 transition-colors"
+                      className="text-sm font-black uppercase tracking-widest text-ieee-blue group-hover:text-accent-cyan transition-colors"
                     >
                       Register
                     </Link>

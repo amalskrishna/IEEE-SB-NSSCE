@@ -51,13 +51,12 @@ export default function AchievementsPreview() {
   };
 
   return (
-    <section className="py-24 relative bg-slate-900 text-white overflow-hidden">
-      {/* Dark theme background elements */}
+    <section className="py-24 relative bg-white text-slate-900 overflow-hidden">
+      {/* Background patterns */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-ieee-blue/20 rounded-full blur-[150px] opacity-50 pointer-events-none" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-accent-cyan/10 rounded-full blur-[150px] opacity-50 pointer-events-none" />
-
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-ieee-blue/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
@@ -67,24 +66,24 @@ export default function AchievementsPreview() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="inline-flex items-center justify-center p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 mb-6"
+              className="inline-flex items-center justify-center p-3 rounded-xl bg-[#FFD700] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8"
             >
-              <Trophy className="text-yellow-400" size={24} />
+              <Trophy className="text-black stroke-[2.5px]" size={32} />
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-heading font-bold mb-4"
+              className="text-4xl md:text-5xl font-heading font-black mb-8 leading-tight"
             >
-              A Legacy of <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Excellence</span>
+              A Legacy of <span className="relative inline-block"><span className="relative z-10 text-white px-2">Excellence</span><span className="absolute -bottom-1 left-0 w-full h-full bg-ieee-blue -z-0 rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" /></span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-slate-300 text-lg"
+              className="text-slate-800 font-medium text-lg"
             >
               Recognized globally and nationally for our consistent dedication to technological advancement and community building.
             </motion.p>
@@ -97,10 +96,12 @@ export default function AchievementsPreview() {
           >
             <Link
               href="/achievements"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md font-medium transition-all group"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-black rounded-xl text-black font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all group"
             >
               View Full Timeline
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center transition-colors">
+                <ArrowRight size={18} className="stroke-[3px] group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
           </motion.div>
         </div>
@@ -117,22 +118,22 @@ export default function AchievementsPreview() {
             {highlights.map((highlight, index) => {
               const Icon = highlight.icon;
               return (
-                <motion.div key={highlight.id} variants={item} className="relative group h-full">
-                  <div className="h-full p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:-translate-y-2 transition-all duration-300">
+                <motion.div key={highlight.id} variants={item} className="relative group h-full outline-none">
+                  <div className="h-full p-8 rounded-xl bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 flex flex-col cursor-default">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${highlight.bgColor} ${highlight.color}`}>
-                        <Icon size={24} />
+                      <div className={`w-14 h-14 rounded-xl flex items-center justify-center border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white`}>
+                        <Icon size={28} className="text-black stroke-[2.5px]" />
                       </div>
                       <div>
-                        <span className="text-sm font-bold tracking-widest text-slate-400 uppercase">{highlight.year}</span>
+                        <span className="text-sm font-black tracking-widest text-slate-800 uppercase bg-[#FFD700] px-3 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{highlight.year}</span>
                       </div>
                     </div>
 
-                    <h3 className="font-heading font-bold text-xl mb-3">
+                    <h3 className="font-heading font-black text-2xl mb-3 text-slate-900 leading-tight">
                       {highlight.title}
                     </h3>
 
-                    <p className="text-slate-400 text-sm leading-relaxed">
+                    <p className="text-slate-700 font-medium text-sm leading-relaxed mt-auto">
                       {highlight.description}
                     </p>
                   </div>

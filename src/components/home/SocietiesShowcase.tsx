@@ -65,21 +65,19 @@ export default function SocietiesShowcase() {
                  >
                    <motion.div 
                      whileHover={{ scale: 1.15 }}
-                     className={`w-full h-full rounded-full flex items-center justify-center shadow-lg transition-all duration-300 relative overflow-hidden group ${
+                     className={`w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative overflow-hidden group border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] ${
                        node.isViewAll 
-                       ? 'bg-white border-2 border-dashed border-ieee-blue text-ieee-blue' 
-                       : `bg-white border-2 border-white ${node.logo ? '' : 'text-white'} ${node.logo ? '' : node.accentColor || 'bg-ieee-blue'}`
+                       ? 'bg-[#FFD700] text-black' 
+                       : `bg-white ${node.logo ? '' : 'text-black font-black'} ${node.logo ? '' : node.accentColor || 'bg-ieee-blue'}`
                      }`}
                    >
                      {node.isViewAll ? (
-                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform md:w-5 md:h-5" />
+                       <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform md:w-6 md:h-6 stroke-[3px]" />
                      ) : node.logo ? (
                        <img src={node.logo} alt={node.shortName} draggable={false} style={{ transform: node.logoRotation }} className="w-8 h-8 md:w-10 md:h-10 object-contain z-10 pointer-events-none" />
                      ) : (
-                       <span className="font-bold text-[11px] md:text-base tracking-wider z-10">{node.shortName}</span>
+                       <span className="font-black text-[11px] md:text-base tracking-wider z-10">{node.shortName}</span>
                      )}
-                     {/* Glossy reflection */}
-                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/60 opacity-40"></div>
                    </motion.div>
                  </Link>
                </div>
@@ -106,14 +104,14 @@ export default function SocietiesShowcase() {
           animate={{ rotate: [-3, 3, -3] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
           whileHover={{ rotate: -3, transition: { duration: 0.2 } }}
-          className="w-56 xl:w-64 bg-yellow-100/90 backdrop-blur-sm p-6 shadow-xl border border-yellow-200/50 cursor-pointer hover:shadow-2xl transition-shadow"
-          style={{ borderRadius: "2px 15px 2px 15px", transformOrigin: "top center" }}
+          className="w-56 xl:w-64 bg-[#FFEB3B] p-6 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] cursor-pointer hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+          style={{ transformOrigin: "top center" }}
         >
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-red-500/80">
-            <Pin size={24} fill="currentColor" className="drop-shadow-md" />
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-red-500">
+            <Pin size={32} fill="currentColor" className="drop-shadow-sm rotate-12" />
           </div>
-          <h3 className="font-heading font-bold text-lg text-yellow-900 mb-2">IEEE Vision</h3>
-          <p className="text-sm text-yellow-800 font-medium leading-relaxed italic">
+          <h3 className="font-heading font-black text-lg text-black mb-2 mt-2">IEEE Vision</h3>
+          <p className="text-sm text-black font-bold leading-relaxed italic">
             "IEEE will be essential to the global technical community... and be universally recognized for the contributions of technology in improving global conditions."
           </p>
         </motion.div>
@@ -130,14 +128,14 @@ export default function SocietiesShowcase() {
           animate={{ rotate: [4, -2, 4] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
           whileHover={{ rotate: 4, transition: { duration: 0.4 } }}
-          className="w-56 xl:w-64 bg-sky-50/90 backdrop-blur-sm p-6 shadow-xl border border-sky-100/50 cursor-pointer hover:shadow-2xl transition-shadow"
-          style={{ borderRadius: "15px 2px 15px 2px", transformOrigin: "top center" }}
+          className="w-56 xl:w-64 bg-accent-cyan p-6 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] cursor-pointer hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+          style={{ transformOrigin: "top center" }}
         >
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-slate-500/80">
-            <Pin size={24} fill="currentColor" className="drop-shadow-md" />
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-red-500">
+            <Pin size={32} fill="currentColor" className="drop-shadow-sm -rotate-12" />
           </div>
-          <h3 className="font-heading font-bold text-lg text-sky-900 mb-2">IEEE Mission</h3>
-          <p className="text-sm text-sky-800 font-medium leading-relaxed italic">
+          <h3 className="font-heading font-black text-lg text-black mb-2 mt-2">IEEE Mission</h3>
+          <p className="text-sm text-black font-bold leading-relaxed italic">
             "IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity."
           </p>
         </motion.div>
@@ -149,16 +147,16 @@ export default function SocietiesShowcase() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-4xl md:text-5xl font-heading font-bold mb-4"
+            className="text-4xl md:text-5xl font-heading font-black mb-8 text-slate-900"
           >
-            Explore Our <span className="text-gradient">Societies</span>
+            Explore Our <span className="relative inline-block"><span className="relative z-10 text-white px-2">Societies</span><span className="absolute -bottom-1 left-0 w-full h-full bg-[#FFD700] -z-0 -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" /></span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-muted-foreground max-w-2xl mx-auto"
+            className="text-slate-800 font-medium max-w-2xl mx-auto text-lg"
           >
             Discover the specialized student chapters driving innovation across various engineering and technology domains.
           </motion.p>
@@ -229,9 +227,9 @@ export default function SocietiesShowcase() {
           </div>
 
           {/* Central Hub */}
-          <div className="relative z-10 w-40 h-40 md:w-64 md:h-64 rounded-full bg-white/90 backdrop-blur-md border border-white/50 shadow-[0_0_40px_-10px_rgba(0,98,155,0.2)] flex flex-col items-center justify-center text-center p-3 md:p-6 overflow-hidden">
+          <div className="relative z-10 w-40 h-40 md:w-64 md:h-64 rounded-full bg-white border-[4px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center text-center p-3 md:p-6 overflow-hidden">
             {/* Subtle inner glow */}
-            <div className={`absolute inset-0 opacity-10 transition-colors duration-500 ${activeNode && !activeNode.isViewAll ? activeNode.accentColor : 'bg-ieee-blue'}`}></div>
+            <div className={`absolute inset-0 opacity-20 transition-colors duration-500 ${activeNode && !activeNode.isViewAll ? activeNode.accentColor : 'bg-[#FFD700]'}`}></div>
             
             <AnimatePresence mode="wait">
               {activeNode ? (
@@ -245,24 +243,24 @@ export default function SocietiesShowcase() {
                 >
                    {activeNode.isViewAll ? (
                      <>
-                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ieee-blue/10 flex items-center justify-center text-ieee-blue mb-2 md:mb-3">
-                          <ArrowRight size={20} className="md:w-6 md:h-6" />
+                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black bg-[#FFD700] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-black mb-2 md:mb-3">
+                          <ArrowRight size={24} className="md:w-6 md:h-6 stroke-[3px]" />
                        </div>
-                       <h3 className="font-bold text-xs md:text-lg text-slate-900 leading-tight">View All Societies</h3>
-                       <p className="text-[9px] md:text-xs text-slate-500 mt-1 md:mt-2">Click to explore directory</p>
+                       <h3 className="font-black text-xs md:text-xl text-slate-900 leading-tight">View All Societies</h3>
+                       <p className="text-[9px] md:text-sm font-bold text-slate-600 mt-1 md:mt-2">Click to explore directory</p>
                      </>
                    ) : (
                      <>
                        {activeNode.logo ? (
-                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1 md:mb-2 shadow-inner bg-white p-2 border border-slate-100">
+                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-1 md:mb-2 bg-white p-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                            <img src={activeNode.logo} alt={activeNode.shortName} style={{ transform: activeNode.logoRotation }} className="w-full h-full object-contain pointer-events-none" />
                          </div>
                        ) : (
-                         <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white font-bold mb-1 md:mb-2 shadow-inner text-[10px] md:text-base ${activeNode.accentColor}`}>
+                         <div className={`w-8 h-8 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-white font-black mb-1 md:mb-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-[10px] md:text-base ${activeNode.accentColor}`}>
                             {activeNode.shortName}
                          </div>
                        )}
-                       <h3 className="font-bold text-[11px] md:text-base leading-tight mb-1 md:mb-2 text-slate-900 px-1">{activeNode.name}</h3>
+                       <h3 className="font-black text-[11px] md:text-lg leading-tight mb-1 md:mb-2 text-slate-900 px-1">{activeNode.name}</h3>
                        <p className="text-[9px] md:text-xs text-slate-600 line-clamp-3 md:line-clamp-4 px-1 leading-snug">
                          {activeNode.description}
                        </p>
@@ -280,11 +278,11 @@ export default function SocietiesShowcase() {
                    exit={{ opacity: 0 }}
                    className="relative z-10"
                 >
-                   <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-ieee-blue to-accent-cyan flex items-center justify-center text-white mx-auto mb-2 md:mb-3 shadow-lg">
-                      <span className="font-bold text-base md:text-2xl">{societies.length}</span>
+                   <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl border-2 border-black bg-[#FFD700] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-black mx-auto mb-3 md:mb-4">
+                      <span className="font-black text-base md:text-3xl">{societies.length}</span>
                    </div>
-                   <h3 className="font-bold text-slate-900 text-xs md:text-lg">IEEE Societies</h3>
-                   <p className="text-[8px] md:text-xs text-slate-500 mt-1 uppercase tracking-wider font-semibold">
+                   <h3 className="font-black text-slate-900 text-xs md:text-xl">IEEE Societies</h3>
+                   <p className="text-[8px] md:text-sm text-slate-600 mt-1 uppercase tracking-widest font-bold">
                      {isTouchDevice ? 'Tap icons to explore' : 'Hover to explore'}
                    </p>
                 </motion.div>

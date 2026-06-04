@@ -26,7 +26,7 @@ export default function Footer() {
       if (!GOOGLE_SCRIPT_URL) alert("Google Script URL is not set up yet.");
       return;
     }
-    
+
     setStatus("loading");
     try {
       const formData = new FormData();
@@ -62,44 +62,44 @@ export default function Footer() {
           {/* Brand & Newsletter */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <img 
-                src="/logo.png" 
-                alt="IEEE SB NSSCE Logo" 
-                className="h-10 w-auto object-contain drop-shadow-sm hover:scale-105 transition-transform" 
+              <img
+                src="/logo.png"
+                alt="IEEE SB NSSCE Logo"
+                className="h-10 w-auto object-contain drop-shadow-sm hover:scale-105 transition-transform"
               />
             </Link>
-            <p className="text-black mb-8 max-w-sm">
+            <p className="text-black font-bold mb-8 max-w-sm">
               Empowering students to innovate and build the future through technology, leadership, and global networking.
             </p>
             <div className="space-y-3">
-              <h4 className="font-semibold text-sm uppercase tracking-wider text-ieee-blue">Stay Updated</h4>
-              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
+              <h4 className="font-black text-sm uppercase tracking-widest text-black bg-white inline-block px-3 py-1 rounded-md border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Stay Updated</h4>
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mt-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status === "loading" || status === "success"}
-                  className="flex-1 bg-white border border-pale-silver rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan disabled:opacity-50"
+                  className="flex-1 bg-white border-2 border-black rounded-xl px-4 py-3 font-bold text-black focus:outline-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all placeholder-slate-500 disabled:opacity-50"
                   required
                 />
                 <button
                   type="submit"
                   disabled={status === "loading" || status === "success"}
-                  className="bg-ieee-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-ieee-blue/90 transition-colors disabled:opacity-50 min-w-[100px] flex items-center justify-center"
+                  className="bg-black text-white border-2 border-black px-6 py-3 rounded-xl font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-all min-w-[120px] flex items-center justify-center disabled:opacity-50"
                 >
                   {status === "loading" ? "..." : status === "success" ? "Done!" : "Subscribe"}
                 </button>
               </form>
-              {status === "success" && <p className="text-xs text-green-600 font-medium mt-1">Thanks for subscribing!</p>}
-              {status === "error" && <p className="text-xs text-red-600 font-medium mt-1">Something went wrong. Try again.</p>}
+              {status === "success" && <p className="text-xs bg-green-400 text-black font-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] px-3 py-1 rounded-md inline-block mt-2">Thanks for subscribing!</p>}
+              {status === "error" && <p className="text-xs bg-red-400 text-black font-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] px-3 py-1 rounded-md inline-block mt-2">Something went wrong. Try again.</p>}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading font-black text-2xl mb-6 text-black">Quick Links</h4>
+            <ul className="space-y-4">
               {[
                 { name: 'Home', href: '/' },
                 { name: 'About Us', href: '/#about' },
@@ -109,9 +109,9 @@ export default function Footer() {
                 { name: 'Gallery', href: '/gallery' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-black hover:text-ieee-blue transition-colors text-sm flex items-center gap-1 group">
+                  <Link href={item.href} className="text-black font-bold hover:bg-white hover:px-2 rounded-md transition-all text-sm flex items-center gap-2 group w-max">
+                    <ArrowUpRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all font-black stroke-[3px]" />
                     {item.name}
-                    <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -120,8 +120,8 @@ export default function Footer() {
 
           {/* Societies */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Societies</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading font-black text-2xl mb-6 text-black">Societies</h4>
+            <ul className="space-y-4">
               {[
                 { name: 'Computer Society', href: '/societies/computer-society' },
                 { name: 'Power & Energy', href: '/societies/power-energy-society' },
@@ -131,7 +131,7 @@ export default function Footer() {
                 { name: 'View All', href: '/societies' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-black hover:text-ieee-blue transition-colors text-sm">
+                  <Link href={item.href} className="text-black font-bold hover:bg-white hover:px-2 rounded-md transition-all text-sm w-max block">
                     {item.name}
                   </Link>
                 </li>
@@ -141,25 +141,25 @@ export default function Footer() {
 
           {/* Contact & Socials */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Connect</h4>
+            <h4 className="font-heading font-black text-2xl mb-6 text-black">Connect</h4>
             <div className="space-y-4 mb-8">
-              <p className="text-sm text-black">
+              <p className="text-sm text-black font-bold">
                 NSS College of Engineering<br />
                 Akathethara, Palakkad<br />
                 Kerala 678008, India
               </p>
-              <a href="mailto:ieee@nssce.ac.in" className="text-sm text-ieee-blue hover:underline">
+              <a href="mailto:ieee@nssce.ac.in" className="inline-block text-sm font-black bg-white px-3 py-1 border-2 border-black rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
                 ieee@nssce.ac.in
               </a>
             </div>
             <div className="flex gap-4">
-              <a href="https://www.linkedin.com/company/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-pale-silver flex items-center justify-center text-black hover:text-ieee-blue hover:border-ieee-blue transition-all hover:scale-110">
+              <a href="https://www.linkedin.com/company/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-black transition-all">
                 <SocialIcon name="linkedin" />
               </a>
-              <a href="https://www.instagram.com/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-pale-silver flex items-center justify-center text-black hover:text-ieee-blue hover:border-ieee-blue transition-all hover:scale-110">
+              <a href="https://www.instagram.com/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-black transition-all">
                 <SocialIcon name="instagram" />
               </a>
-              <a href="https://github.com/IEEE-NSSCE" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-pale-silver flex items-center justify-center text-black hover:text-ieee-blue hover:border-ieee-blue transition-all hover:scale-110">
+              <a href="https://github.com/IEEE-NSSCE" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-black transition-all">
                 <SocialIcon name="github" />
               </a>
             </div>
@@ -167,19 +167,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-black/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col items-center md:items-start gap-1">
-            <p className="text-xs text-black font-medium">
+        <div className="pt-8 border-t-4 border-black/20 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="text-sm text-black font-black">
               © {new Date().getFullYear()} IEEE Student Branch NSSCE. All rights reserved.
             </p>
-            <p className="text-xs text-black/70 font-medium">
+            <p className="text-xs text-black font-bold">
               Developed by Web Team, IEEE SB NSSCE
             </p>
           </div>
           <div className="flex gap-6">
-            <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="text-xs text-black hover:text-ieee-blue">IEEE.org</a>
-            <a href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener noreferrer" className="text-xs text-black hover:text-ieee-blue">IEEE Xplore</a>
-            <a href="https://www.ieee.org/sitemap.html" target="_blank" rel="noopener noreferrer" className="text-xs text-black hover:text-ieee-blue">Sitemap</a>
+            <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="text-xs font-black bg-white px-2 py-1 border-2 border-black/50 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none hover:border-black transition-all">IEEE.org</a>
+            <a href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener noreferrer" className="text-xs font-black bg-white px-2 py-1 border-2 border-black/50 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none hover:border-black transition-all">IEEE Xplore</a>
+            <a href="https://www.ieee.org/sitemap.html" target="_blank" rel="noopener noreferrer" className="text-xs font-black bg-white px-2 py-1 border-2 border-black/50 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none hover:border-black transition-all">Sitemap</a>
           </div>
         </div>
       </div>
