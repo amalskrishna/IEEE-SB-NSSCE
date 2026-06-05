@@ -60,7 +60,7 @@ export default function UpcomingEvents() {
               transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
               className="group h-full flex"
             >
-              <div className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative">
+              <Link href={`/events/${event.slug}`} className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative text-left">
                 {/* Image Banner Container */}
                 <div className="relative h-48 w-full bg-slate-100 rounded-lg border-2 border-black overflow-hidden mb-5">
                   <div className="absolute inset-0 bg-ieee-blue/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
@@ -109,15 +109,12 @@ export default function UpcomingEvents() {
                       </div>
                     </div>
 
-                    <Link
-                      href={`/events/${event.slug}`}
-                      className="text-sm font-black uppercase tracking-widest text-ieee-blue group-hover:text-accent-cyan transition-colors"
-                    >
+                    <span className="text-sm font-black uppercase tracking-widest text-ieee-blue group-hover:text-accent-cyan transition-colors">
                       {event.status === 'past' ? 'View Details' : 'Register Now'}
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
 

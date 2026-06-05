@@ -37,6 +37,11 @@ export interface AgendaItem {
   description?: string;
 }
 
+export interface Contact {
+  name: string;
+  phone: string;
+}
+
 export interface Event {
   id: string;
   slug: string;
@@ -53,6 +58,7 @@ export interface Event {
   agenda?: AgendaItem[];
   gallery?: string[];
   registrationUrl?: string;
+  contacts?: Contact[];
 }
 
 export interface Achievement {

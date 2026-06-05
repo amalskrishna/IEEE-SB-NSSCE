@@ -17,7 +17,7 @@ const EventCard = ({ event }: { event: typeof events[0] }) => {
       exit={{ opacity: 0, scale: 0.9 }}
       className="group h-full flex outline-none"
     >
-      <div className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative">
+      <Link href={`/events/${event.slug}`} className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative text-left">
         {/* Image Banner */}
         <div className="relative h-48 w-full bg-slate-100 rounded-lg border-2 border-black overflow-hidden mb-5">
           <div className={`absolute inset-0 ${society?.accentColor || 'bg-ieee-blue'} opacity-20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center`}>
@@ -61,16 +61,13 @@ const EventCard = ({ event }: { event: typeof events[0] }) => {
           </div>
 
           <div className="pt-2 flex items-center justify-between">
-            <Link
-              href={`/events/${event.slug}`}
-              className="text-sm font-black uppercase tracking-widest text-ieee-blue group-hover:text-accent-cyan transition-colors flex items-center gap-2"
-            >
+            <span className="text-sm font-black uppercase tracking-widest text-ieee-blue group-hover:text-accent-cyan transition-colors flex items-center gap-2">
               {event.status === 'past' ? 'View Details' : 'Register Now'}
               <ArrowRight size={18} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-            </Link>
+            </span>
           </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };

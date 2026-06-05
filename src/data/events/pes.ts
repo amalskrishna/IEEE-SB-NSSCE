@@ -14,6 +14,10 @@ export const pesEvents: Event[] = [
     banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
     tags: ["Networking", "Workshop", "Tech"],
     registrationUrl: "https://forms.gle/dummy-link-xyz",
+    contacts: [
+      { name: "Volunteer 1", phone: "+91 98765 43210" },
+      { name: "Volunteer 2", phone: "+91 87654 32109" }
+    ],
     gallery: [
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop"

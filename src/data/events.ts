@@ -14,7 +14,7 @@ import { mttsEvents } from './events/mtts';
 import { sightEvents } from './events/sight';
 import { execomEvents } from './events/execom';
 
-export const events: Event[] = [
+const unsortedEvents: Event[] = [
   ...csEvents,
   ...pesEvents,
   ...rasEvents,
@@ -30,3 +30,7 @@ export const events: Event[] = [
   ...sightEvents,
   ...execomEvents
 ];
+
+export const events: Event[] = unsortedEvents.sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
