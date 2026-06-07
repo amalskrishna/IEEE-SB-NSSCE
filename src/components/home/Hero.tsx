@@ -88,56 +88,75 @@ export default function Hero() {
 
       </div>
 
-      {/* Left Features List (Visible on xl screens and up) */}
-      <div className="hidden xl:flex flex-col gap-8 absolute left-8 2xl:left-16 top-1/2 -translate-y-[40%] z-20 w-[280px]">
-        {[
-          { icon: Users, title: "Learn.", desc: "Access resources, workshops, and expert talks." },
-          { icon: Lightbulb, title: "Innovate.", desc: "Collaborate on projects that solve real-world challenges." },
-          { icon: Globe, title: "Lead.", desc: "Build leadership skills and make a global impact." }
-        ].map((feat, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
-            className="flex items-start gap-5 group cursor-default"
-          >
-            <div className="w-14 h-14 rounded-full bg-white border border-sky-100 flex-shrink-0 flex items-center justify-center shadow-md text-[#00629b] group-hover:bg-gradient-to-br group-hover:from-[#00629b] group-hover:to-[#004f7c] group-hover:text-white group-hover:shadow-[0_8px_16px_-4px_rgba(0,98,155,0.4)] group-hover:scale-105 transition-all duration-300">
-              <feat.icon size={24} strokeWidth={2} className="group-hover:drop-shadow-md transition-all" />
-            </div>
-            <div className="pt-1 group-hover:translate-x-1 transition-transform duration-300">
-              <h3 className="font-bold text-[#00629b] text-xl mb-1 leading-none">{feat.title}</h3>
-              <p className="text-[13px] text-slate-500 leading-snug font-medium">{feat.desc}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      {/* Left Side: Floating Hacker Terminal */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="hidden xl:block absolute left-8 2xl:left-16 top-1/2 -translate-y-[40%] z-20 w-[260px]"
+      >
+        <div className="bg-[#0f172a] rounded-xl overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 hover:rotate-0 transition-all duration-300 group">
+          {/* Terminal Header */}
+          <div className="bg-slate-900 px-3 py-2 flex items-center gap-2 border-b-2 border-black">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500 border border-black"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 border border-black"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500 border border-black"></div>
+            <span className="text-slate-400 text-[10px] font-mono ml-2 font-bold tracking-widest">nssce_core.exe</span>
+          </div>
+          {/* Terminal Body */}
+          <div className="p-4 font-mono text-[11px] text-accent-cyan space-y-2.5">
+            <p className="flex gap-2"><span className="text-white">{">"}</span> <span>Init IEEE_Protocol...</span></p>
+            <p className="text-slate-400 pl-4">Loading core values...</p>
+            <p className="text-slate-400 pl-4">[Learn, Innovate, Lead] ✓</p>
+            <p className="flex gap-2 mt-2"><span className="text-white">{">"}</span> <span>Scanning nodes...</span></p>
+            <p className="text-[#FFD700] pl-4 font-bold">150+ creative minds found.</p>
+            <p className="flex gap-2 mt-2 animate-pulse font-bold"><span className="text-white">{">"}</span> <span>Ready to innovate_</span></p>
+          </div>
+        </div>
+      </motion.div>
 
-      {/* Right Stats Card (Visible on xl screens and up) */}
+      {/* Right Side: Neo-Brutalist Stats Card */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="hidden xl:flex flex-col gap-6 absolute right-8 2xl:right-16 top-1/2 -translate-y-[40%] z-20 w-[280px]"
+        className="hidden xl:flex flex-col gap-5 absolute right-8 2xl:right-16 top-1/2 -translate-y-[40%] z-20 w-[260px]"
       >
-        <h3 className="font-bold text-[#2d3748] mb-2 text-xl pl-2">Together, We Achieve</h3>
-
-        <div className="flex flex-col gap-6">
-          {[
-            { icon: Users, value: "150+", label: "Active Members" },
-            { icon: Calendar, value: "50+", label: "Events Every Year" },
-            { icon: Trophy, value: "10+", label: "Awards & Recognitions" }
-          ].map((stat, idx) => (
-            <div key={idx} className="flex items-center gap-5 group cursor-default">
-              <div className="w-14 h-14 rounded-full bg-white border border-sky-100 flex items-center justify-center text-[#00629b] flex-shrink-0 shadow-md group-hover:bg-gradient-to-br group-hover:from-[#00629b] group-hover:to-[#004f7c] group-hover:text-white group-hover:shadow-[0_8px_16px_-4px_rgba(0,98,155,0.4)] group-hover:scale-105 transition-all duration-300">
-                <stat.icon size={24} strokeWidth={2} className="group-hover:drop-shadow-md transition-all" />
+        <div className="bg-white border-4 border-black p-5 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-2 hover:rotate-0 transition-transform duration-300">
+          <h3 className="font-heading font-black uppercase text-lg mb-4 border-b-4 border-black pb-2 text-slate-800">
+            Our Impact
+          </h3>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3 group cursor-default">
+              <div className="bg-[#FFD700] p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 transition-transform">
+                <Users size={20} className="text-black" strokeWidth={2.5} />
               </div>
-              <div className="group-hover:translate-x-1 transition-transform duration-300 pt-1">
-                <h4 className="font-extrabold text-[#00629b] text-[19px] leading-none mb-1.5">{stat.value}</h4>
-                <p className="text-[13px] text-slate-500 leading-snug font-medium">{stat.label}</p>
+              <div>
+                <h4 className="font-black text-xl font-heading leading-none mb-1 text-slate-900">150+</h4>
+                <p className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Active Members</p>
               </div>
             </div>
-          ))}
+            
+            <div className="flex items-center gap-3 group cursor-default">
+              <div className="bg-accent-cyan p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 transition-transform">
+                <Calendar size={20} className="text-black" strokeWidth={2.5} />
+              </div>
+              <div>
+                <h4 className="font-black text-xl font-heading leading-none mb-1 text-slate-900">50+</h4>
+                <p className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Events Per Year</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 group cursor-default">
+              <div className="bg-[#FF90E8] p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-1 transition-transform">
+                <Trophy size={20} className="text-black" strokeWidth={2.5} />
+              </div>
+              <div>
+                <h4 className="font-black text-xl font-heading leading-none mb-1 text-slate-900">80+</h4>
+                <p className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Awards & Recog.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
 
@@ -302,7 +321,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-[14px] md:text-base text-slate-500 max-w-[600px] mx-auto mb-6 leading-relaxed font-medium"
+          className="text-[14px] md:text-[17px] text-slate-900 max-w-[650px] mx-auto mb-10 leading-relaxed font-medium"
         >
           Empowering the next generation of engineers, technologists, and leaders through innovation, community, and global networking.
         </motion.p>
@@ -312,22 +331,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-5 justify-center items-center"
         >
           <Link
             href="/societies"
-            className="group relative px-8 py-3 bg-[#00629b] text-white rounded-full font-medium shadow-xl shadow-[#00629b]/20 hover:shadow-[#00629b]/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 overflow-hidden"
+            className="group relative px-8 py-3.5 bg-gradient-to-r from-[#00629b] to-[#004772] text-white rounded-full font-bold text-sm md:text-base tracking-wide shadow-lg shadow-[#00629b]/30 hover:shadow-[0_8px_25px_-5px_rgba(0,98,155,0.6)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 overflow-hidden border border-[#00629b]"
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
             Explore Societies
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link
             href="/events"
-            className="px-8 py-3 bg-white text-[#2d3748] rounded-full font-medium hover:bg-slate-50 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 shadow-md border border-slate-100"
+            className="group px-8 py-3.5 bg-white/60 backdrop-blur-lg text-[#00629b] border-2 border-slate-200/80 rounded-full font-bold text-sm md:text-base tracking-wide hover:bg-white hover:border-[#00629b]/30 hover:shadow-[0_8px_25px_-5px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
           >
-            <Calendar size={18} className="text-[#2d3748]" />
+            <Calendar size={20} className="text-[#00629b] group-hover:-rotate-12 transition-transform" />
             Upcoming Events
           </Link>
         </motion.div>
