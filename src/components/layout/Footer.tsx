@@ -55,10 +55,10 @@ export default function Footer() {
       
       {/* Creative Marquee Tape Top Border */}
       <div className="absolute top-0 left-0 w-full z-20 pointer-events-none">
-        <div className="absolute -top-6 left-0 w-full transform -rotate-2 origin-center">
+        <div className="absolute -top-4 md:-top-6 -left-[5%] w-[110%] transform -rotate-6 md:-rotate-2 origin-center">
           <Marquee text="INNOVATE ✦ CREATE ✦ LEAD" bgColor="bg-accent-cyan" textColor="text-black" rotate="rotate-0" direction="right" />
         </div>
-        <div className="absolute -top-6 left-0 w-full transform rotate-2 origin-center">
+        <div className="absolute -top-4 md:-top-6 -left-[5%] w-[110%] transform rotate-6 md:rotate-2 origin-center">
           <Marquee text="IEEE STUDENT BRANCH NSSCE" bgColor="bg-[#FFD700]" textColor="text-black" rotate="rotate-0" />
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
-                { name: 'Home', href: '/' },
+                { name: 'Home', href: '/#hero' },
                 { name: 'About Us', href: '/#about' },
                 { name: 'Events', href: '/events' },
                 { name: 'Team', href: '/team' },

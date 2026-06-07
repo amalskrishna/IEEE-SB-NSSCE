@@ -58,7 +58,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-sky-50">
+    <section id="about" className="py-24 relative overflow-hidden bg-sky-50">
       {/* Decorative background element */}
       <div className="absolute top-1/2 -translate-y-1/2 left-0 w-1/3 h-1/2 bg-accent-cyan/5 rounded-full blur-[100px] -z-10" />
 
