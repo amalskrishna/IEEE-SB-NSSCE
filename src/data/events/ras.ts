@@ -3,45 +3,27 @@ import { Event } from '../types';
 export const rasEvents: Event[] = [
   {
     id: "ras-e1",
-    slug: "robotics-workshop",
-    title: "Intro to ROS & Autonomous Bots",
-    description: "Join us for an exciting day of learning, networking, and hands-on workshops with industry leaders in the field. This event brings together students and professionals to share ideas and innovate.",
-    date: "2026-06-20T10:00:00Z",
-    endDate: "2026-06-20T16:00:00Z",
-    venue: "NSSCE Main Auditorium",
-    societyId: "ras", // Fallback for execom
-    status: "upcoming",
-    banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
+    slug: "hybrot-1",
+    title: "HYBROT 1.0: Unleashing the Future of 3D Printing",
+    description: "Mark your calendars for an extraordinary event series dedicated to exploring the revolutionary world of 3D Printing! Join us for 'HYBROT 1.0', presented by IEEE RAS SBC NSSCE. Get ready to witness mind-boggling applications, hands-on workshops, and insightful discussions for a more creative and sustainable future!",
+    date: "2023-07-22T09:00:00Z",
+    venue: "Auditorium",
+    price: "Free",
+    societyId: "ras", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/ras/e1/1.jpg",
     tags: ["Networking", "Workshop", "Tech"],
     registrationUrl: "https://forms.gle/dummy-link-xyz",
     contacts: [
-      { name: "Volunteer 1", phone: "+91 98765 43210" },
-      { name: "Volunteer 2", phone: "+91 87654 32109" }
+      { name: "Edison", phone: "9074857267" },
+      { name: "Nandana", phone: "9633988622" }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop"
-    ],
-    speakers: [
-      {
-        name: "Jane Doe",
-        designation: "Senior Engineer & Industry Expert",
-        bio: "Jane is an industry veteran with over a decade of experience and a passion for teaching and open-source contribution.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      },
-      {
-        name: "John Smith",
-        designation: "Technical Lead",
-        bio: "John leads the architecture team and specializes in scalable systems design and robust software engineering practices.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      }
-    ],
-    agenda: [
-      { time: "10:00 AM", title: "Inauguration & Keynote", description: "Opening remarks and keynote speech." },
-      { time: "11:00 AM", title: "Technical Session 1", description: "Deep dive into the latest industry trends." },
-      { time: "01:00 PM", title: "Lunch Break" },
-      { time: "02:00 PM", title: "Hands-on Workshop", description: "Interactive session building a real-world project." },
-      { time: "04:00 PM", title: "Closing Ceremony & Networking" }
-    ],
+      "https://sb-dataset.vercel.app/events/ras/e1/1.jpg",
+      "https://sb-dataset.vercel.app/events/ras/e1/2.jpg",
+      "https://sb-dataset.vercel.app/events/ras/e1/3.jpg",
+      "https://sb-dataset.vercel.app/events/ras/e1/4.jpg",
+      "https://sb-dataset.vercel.app/events/ras/e1/5.jpg"
+    ]
   }
 ];

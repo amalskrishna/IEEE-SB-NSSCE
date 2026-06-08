@@ -48,7 +48,8 @@ export interface Event {
   title: string;
   description: string;
   date: string; // ISO 8601
-  endDate?: string;
+  time?: string;
+  price?: string;
   venue: string;
   societyId: string;
   status: 'upcoming' | 'past' | 'featured';

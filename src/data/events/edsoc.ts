@@ -7,8 +7,9 @@ export const edsocEvents: Event[] = [
     title: "Education in Tech Forum",
     description: "Join us for an exciting day of learning, networking, and hands-on workshops with industry leaders in the field. This event brings together students and professionals to share ideas and innovate.",
     date: "2027-04-15T09:00:00Z",
-    endDate: "2027-04-15T17:00:00Z",
+    time: "10:00 AM - 04:00 PM",
     venue: "NSSCE Main Auditorium",
+    price: "Free",
     societyId: "edsoc", // Fallback for execom
     status: "upcoming",
     banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",

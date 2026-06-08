@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { events } from "@/data/events";
 import { Calendar as CalendarIcon, MapPin, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function UpcomingEvents() {
   const upcomingEvents = [...events]
@@ -68,9 +69,18 @@ export default function UpcomingEvents() {
               <Link href={`/events/${event.slug}`} className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative text-left">
                 {/* Image Banner Container */}
                 <div className="relative h-48 w-full bg-slate-100 rounded-lg border-2 border-black overflow-hidden mb-5">
-                  <div className="absolute inset-0 bg-ieee-blue/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                    <span className="font-heading text-slate-800/40 font-black text-4xl uppercase px-4 text-center leading-none">{event.title.substring(0, 15)}</span>
-                  </div>
+                  {event.banner ? (
+                    <Image 
+                      src={event.banner} 
+                      alt={event.title} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-ieee-blue/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                      <span className="font-heading text-slate-800/40 font-black text-4xl uppercase px-4 text-center leading-none">{event.title.substring(0, 15)}</span>
+                    </div>
+                  )}
 
                   <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-2">
                     <span className="px-3 py-1.5 bg-white text-black text-xs font-bold rounded-lg uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
@@ -94,8 +104,12 @@ export default function UpcomingEvents() {
                     <div className="flex items-center text-sm text-slate-900 font-bold">
                       <CalendarIcon size={18} className="mr-3 text-ieee-blue" />
                       {eventDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                      {' • '}
-                      {eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+                      {event.time && (
+                        <>
+                          {' • '}
+                          {event.time}
+                        </>
+                      )}
                     </div>
                     <div className="flex items-center text-sm text-slate-900 font-bold">
                       <MapPin size={18} className="mr-3 text-ieee-blue" />

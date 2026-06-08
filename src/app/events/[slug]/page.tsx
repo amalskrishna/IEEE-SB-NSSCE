@@ -3,11 +3,12 @@ import { societies } from "@/data/societies";
 import { notFound } from "next/navigation";
 import { Calendar, MapPin, Clock, ArrowRight, User } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import EventGallery from "@/components/events/EventGallery";
 
 export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const event = events.find((e) => e.slug === slug);
+  const event = events.find((e) => e.slug.toLowerCase() === slug.toLowerCase());
 
   if (!event) {
     notFound();
@@ -21,7 +22,16 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
       {/* Hero Banner */}
       <div className="relative h-[60vh] min-h-[500px] w-full bg-slate-900 flex items-end">
         <div className="absolute inset-0 z-0">
-          <div className={`absolute inset-0 opacity-40 ${society?.accentColor || 'bg-ieee-blue'}`} />
+          {event.banner && (
+            <Image 
+              src={event.banner}
+              alt={event.title}
+              fill
+              priority
+              className="object-cover opacity-50"
+            />
+          )}
+          <div className={`absolute inset-0 opacity-40 ${society?.accentColor || 'bg-ieee-blue'} ${event.banner ? 'mix-blend-multiply' : ''}`} />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
         </div>
 
@@ -49,10 +59,12 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
                 <Calendar className="text-accent-cyan" size={24} />
                 <span>{new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="text-accent-cyan" size={24} />
-                <span>{new Date(event.date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
-              </div>
+              {event.time && (
+                <div className="flex items-center gap-2">
+                  <Clock className="text-accent-cyan" size={24} />
+                  <span>{event.time}</span>
+                </div>
+              )}
               <div className="flex items-center gap-2">
                 <MapPin className="text-accent-cyan" size={24} />
                 <span>{event.venue}</span>
@@ -145,7 +157,7 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between pb-4 border-b-2 border-black border-dashed">
                     <span className="text-slate-600 font-bold uppercase tracking-wider text-sm">Price</span>
-                    <span className="font-black text-slate-900">Free for Members</span>
+                    <span className="font-black text-slate-900">{event.price || "Free"}</span>
                   </div>
                   <div className="flex justify-between pb-4 border-b-2 border-black border-dashed">
                     <span className="text-slate-600 font-bold uppercase tracking-wider text-sm">Location</span>

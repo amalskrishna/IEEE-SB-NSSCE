@@ -3,45 +3,56 @@ import { Event } from '../types';
 export const csEvents: Event[] = [
   {
     id: "cs-e1",
-    slug: "tech-symposium-2026",
-    title: "National Tech Symposium 2026",
-    description: "Join us for an exciting day of learning, networking, and hands-on workshops with industry leaders in the field. This event brings together students and professionals to share ideas and innovate.",
-    date: "2026-08-15T09:00:00Z",
-    endDate: "2026-08-15T17:00:00Z",
-    venue: "NSSCE Main Auditorium",
-    societyId: "cs", // Fallback for execom
-    status: "upcoming",
-    banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-    tags: ["Networking", "Workshop", "Tech"],
-    registrationUrl: "https://forms.gle/dummy-link-xyz",
-    contacts: [
-      { name: "Volunteer 1", phone: "+91 98765 43210" },
-      { name: "Volunteer 2", phone: "+91 87654 32109" }
-    ],
+    slug: "encrypta-1-0",
+    title: "Encrypta 1.0",
+    description: "The wait is finally over for the most anticipated coding competition of the year!",
+    date: "2018-10-11T09:00:00Z",
+    venue: "DLH Hall",
+    price: "Paid",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e1/1.jpg",
+    tags: ["Coding Competition", "Tech"],
     gallery: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop"
-    ],
-    speakers: [
-      {
-        name: "Jane Doe",
-        designation: "Senior Engineer & Industry Expert",
-        bio: "Jane is an industry veteran with over a decade of experience and a passion for teaching and open-source contribution.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      },
-      {
-        name: "John Smith",
-        designation: "Technical Lead",
-        bio: "John leads the architecture team and specializes in scalable systems design and robust software engineering practices.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      }
-    ],
-    agenda: [
-      { time: "10:00 AM", title: "Inauguration & Keynote", description: "Opening remarks and keynote speech." },
-      { time: "11:00 AM", title: "Technical Session 1", description: "Deep dive into the latest industry trends." },
-      { time: "01:00 PM", title: "Lunch Break" },
-      { time: "02:00 PM", title: "Hands-on Workshop", description: "Interactive session building a real-world project." },
-      { time: "04:00 PM", title: "Closing Ceremony & Networking" }
-    ],
-  }
+      "https://sb-dataset.vercel.app/events/cs/e1/1.jpg"
+    ]
+  },
+  {
+    id: "cs-e2",
+    slug: "encrypta-2-0",
+    title: "Encrypta 2.0",
+    description: "The wait is finally over for the second edition of the most anticipated coding competition of the year Encrypta 2.0!",
+    date: "2019-07-30T09:00:00Z",
+    venue: "DLH Hall",
+    price: "Paid",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e2/1.jpg",
+    tags: ["Coding Competition", "Tech"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e2/1.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e2/2.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e2/3.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e2/4.jpg"
+    ]
+  },
+  {
+    id: "cs-e3",
+    slug: "hack-x",
+    title: "HACK X - The Christmas Hackathon",
+    description: "IEEE SB NITC Computer Society in collaboration with IEEE SB NSSCE Computer Society brings forth 'HACK X', The Christmas Hackathon. An amazing opportunity to hone your coding and problem solving skills.",
+    date: "2020-12-24T09:00:00Z",
+    venue: "Online",
+    price: "Paid",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e3/1.jpg",
+    tags: ["Hackathon", "Coding Competition"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e3/1.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e3/2.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e3/3.jpg"
+    ]
+  },
+  
 ];

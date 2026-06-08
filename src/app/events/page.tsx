@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Calendar as CalendarIcon, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { events } from "@/data/events";
 import { societies } from "@/data/societies";
 
@@ -22,11 +23,20 @@ const EventCard = ({ event }: { event: typeof events[0] }) => {
       <Link href={`/events/${event.slug}`} className="bg-white rounded-xl border-2 border-black p-4 md:p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-300 w-full flex flex-col relative text-left">
         {/* Image Banner */}
         <div className="relative h-48 w-full bg-slate-100 rounded-lg border-2 border-black overflow-hidden mb-5">
-          <div className={`absolute inset-0 ${society?.accentColor || 'bg-ieee-blue'} opacity-20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center`}>
-            <span className="font-heading text-slate-800/40 font-black text-4xl uppercase px-4 text-center leading-none">
-              {event.title.substring(0, 15)}
-            </span>
-          </div>
+          {event.banner ? (
+            <Image 
+              src={event.banner} 
+              alt={event.title} 
+              fill 
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className={`absolute inset-0 ${society?.accentColor || 'bg-ieee-blue'} opacity-20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center`}>
+              <span className="font-heading text-slate-800/40 font-black text-4xl uppercase px-4 text-center leading-none">
+                {event.title.substring(0, 15)}
+              </span>
+            </div>
+          )}
           <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-2">
             {society && (
               <span className={`px-3 py-1.5 text-white text-xs font-bold rounded-lg uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-black ${society.accentColor}`}>
@@ -98,7 +108,8 @@ export default function EventsPage() {
 
   const featuredEvents = useMemo(() => filteredEvents.filter(e => e.status === "featured"), [filteredEvents]);
   const upcomingEvents = useMemo(() => filteredEvents.filter(e => e.status === "upcoming"), [filteredEvents]);
-  const pastEvents = useMemo(() => filteredEvents.filter(e => e.status === "past"), [filteredEvents]);
+  const pastEvents = useMemo(() => filteredEvents.filter(e => e.status === "past" && new Date(e.date).getFullYear() > 2024), [filteredEvents]);
+  const legacyEvents = useMemo(() => filteredEvents.filter(e => e.status === "past" && new Date(e.date).getFullYear() <= 2024), [filteredEvents]);
 
 
 
@@ -216,12 +227,23 @@ export default function EventsPage() {
           )}
 
           {pastEvents.length > 0 && (
-            <motion.div key="past-events" layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div key="past-events" layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-16">
               <h2 className="text-2xl font-heading font-black mb-8 inline-block bg-slate-200 text-slate-800 px-6 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                 Past Events
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {pastEvents.map(event => <EventCard key={event.id} event={event} />)}
+              </div>
+            </motion.div>
+          )}
+
+          {legacyEvents.length > 0 && (
+            <motion.div key="legacy-events" layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-16">
+              <h2 className="text-2xl font-heading font-black mb-8 inline-block bg-accent-cyan text-slate-900 px-6 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-1">
+                Our Legacy Events
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {legacyEvents.map(event => <EventCard key={event.id} event={event} />)}
               </div>
             </motion.div>
           )}
