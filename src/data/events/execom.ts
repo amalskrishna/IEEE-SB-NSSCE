@@ -11,7 +11,7 @@ export const execomEvents: Event[] = [
     venue: "NSS College of Engineering",
     price: "Free for College Representatives",
     societyId: "execom", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/execom/e1/1.jpg",
     tags: ["Networking", "Leadership", "Hub Meet"],
     gallery: [
@@ -35,7 +35,7 @@ export const execomEvents: Event[] = [
     venue: "Sreekrishnapuram",
     price: "Free",
     societyId: "execom", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/execom/e2/3.jpg",
     tags: ["IEEE Day", "Humanitarian"],
     gallery: [
@@ -59,7 +59,7 @@ export const execomEvents: Event[] = [
     venue: "NSSCE",
     price: "Paid",
     societyId: "execom", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/execom/e3/1.jpg",
     tags: ["National Hackathon", "Competition"],
     gallery: [
@@ -88,12 +88,37 @@ export const execomEvents: Event[] = [
     venue: "NSSCE",
     price: "Paid",
     societyId: "execom", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/execom/e4/1.jpg",
     tags: ["National Hackathon", "Competition"],
     gallery: [
       "https://sb-dataset.vercel.app/events/execom/e4/1.jpg",
       "https://sb-dataset.vercel.app/events/execom/e4/2.jpg",  ]
+  },
+  {
+    id: "execom-e5",
+    slug: "skillup",
+    title: "SkillUp: 6-month initiative",
+    description: "IEEE SB NSSCE are thrilled to launch SkillUp – a student-focused initiative designed to connect academic knowledge with real-world industry expertise.",
+    date: "2025-10-11T10:00:00Z",
+    venue: "Online",
+    price: "Paid",
+    societyId: "execom", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/execom/e5/1.jpg",
+    tags: ["Bootcamp", "Initiative"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/execom/e5/1.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/2.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/3.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/4.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/5.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/6.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/7.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/8.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/9.jpg",
+      "https://sb-dataset.vercel.app/events/execom/e5/10.jpg"
+    ]
   },
 
 ];

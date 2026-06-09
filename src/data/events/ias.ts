@@ -3,28 +3,23 @@ import { Event } from '../types';
 export const iasEvents: Event[] = [
   {
     id: "ias-e1",
-    slug: "ias-section-distinguished-lecture-program",
-    title: "Section Distinguished Lecture Program-SDLP",
-    description: "Here comes a golden opportunity to explore Machine Learning. IEEE IAS Student Branch Chapter NSS College of Engineering Palakkad and IEEE Kerala section jointly organising a SDLP (Section Distinguished Lecture Program) on Machine Learning by Dr. Deepak Mishra From IIST Trivandram. The session is collaborated with ELASTA. Anybody can attend the session.",
-    date: "2019-10-31T09:00:00Z",
-    time: "9:00 AM",
-    venue: "DLH Hall",
-    price: "Free",
+    slug: "beyond-btech",
+    title: "Beyond B.Tech: Unlocking Research Pathways",
+    description: "IEEE IAS Chapter NSSCE & Department of ECE NSSCE are pleased to present an informative session on ‘Beyond B.Tech: Unlocking Research Pathways’ .  The session aims to bridge the gap between undergraduate studies and the realm of research, providing students with a roadmap to pursue advanced academic interests and contribute to the field of engineering.",
+    date: "2025-06-07T09:00:00Z",
+    venue: "Online",
+    price: "free",
     societyId: "ias",
     status: "past",
     banner: "https://sb-dataset.vercel.app/events/ias/e1/1.jpg",
-    tags: ["Machine Learning", "Lecture"],
+    tags: ["Networking", "Webinar", "BTech"],
+    registrationUrl: "https://forms.gle/QiG41LF3tvrd6xxA9",
+    contacts: [
+      { name: "Serena", phone: "+919074189836" },
+      { name: "Bhadra", phone: "+918590663022" }
+    ],
     gallery: [
       "https://sb-dataset.vercel.app/events/ias/e1/1.jpg"
-    ],
-    speakers: [
-      {
-        name: "Dr. Deepak Mishra",
-        designation: "Assistant Professor at IIST Trivandrum",
-        bio: "Dr. Deepak Mishra is an Assistant Professor at IIST Trivandrum. He is an expert in Machine Learning and has over a decade of experience in the field.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      }
     ]
-  },
-  
+  }
 ];

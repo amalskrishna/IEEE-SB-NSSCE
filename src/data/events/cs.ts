@@ -10,7 +10,7 @@ export const csEvents: Event[] = [
     venue: "DLH Hall",
     price: "Paid",
     societyId: "cs", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/cs/e1/1.jpg",
     tags: ["Coding Competition", "Tech"],
     gallery: [
@@ -26,7 +26,7 @@ export const csEvents: Event[] = [
     venue: "DLH Hall",
     price: "Paid",
     societyId: "cs", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/cs/e2/1.jpg",
     tags: ["Coding Competition", "Tech"],
     gallery: [
@@ -45,7 +45,7 @@ export const csEvents: Event[] = [
     venue: "Online",
     price: "Paid",
     societyId: "cs", 
-    status: "past",
+    status: "legacy",
     banner: "https://sb-dataset.vercel.app/events/cs/e3/1.jpg",
     tags: ["Hackathon", "Coding Competition"],
     gallery: [
@@ -54,5 +54,61 @@ export const csEvents: Event[] = [
       "https://sb-dataset.vercel.app/events/cs/e3/3.jpg"
     ]
   },
-  
+  {
+    id: "cs-e4",
+    slug: "membership-development-webinar-on-ieee-computer-society",
+    title: "Membership Development Webinar on IEEE Computer Society",
+    description: "IEEE CS Kerala Chapter, in collaboration with IEEE CS SBC NSSCE, proudly presents the Membership Development Webinar on IEEE Computer Society !",
+    date: "2025-03-30T09:00:00Z",
+    venue: "Online",
+    price: "Free",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e4/1.jpg",
+    tags: ["Webinar"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e4/1.jpg"    ]
+  },
+  {
+    id: "cs-e5",
+    slug: "informatyka",
+    title: "INFORMATYKA 5.0",
+    description: "As part of INFORMATYKA 5.0, IEEE CS KERALA CHAPTER, in collaboration with IEEE YOUNG PROFESSIONALS KERALA SECTION and IEEE CS SBC NSSCE, excitedly presents 'TAILORED INTELLIGENCE: EXPLORING CUSTOM GPTs' - a talk session aimed at introducing the power of Custom GPTs",
+    date: "2025-06-14T09:00:00Z",
+    venue: "Online",
+    price: "Free",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e5/1.jpg",
+    tags: ["Webinar"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e5/1.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e5/2.jpg"
+    ]
+  },
+  {
+    id: "cs-e6",
+    slug: "encrypta-3.0",
+    title: "ENCRYPTA <3.0> – Know the Story, Get the Code!",
+    description: "IEEE Computer Society SBC NSSCE proudly presents Encrypta 3.0, the ultimate coding competition where logic meets mystery",
+    date: "2025-09-27T09:00:00Z",
+    venue: "NSS College of Engineering",
+    price: "200 Rs",
+    societyId: "cs", 
+    status: "legacy",
+    banner: "https://sb-dataset.vercel.app/events/cs/e6/10.jpg",
+    tags: ["Coding Competition"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e6/1.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/2.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/3.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/4.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/5.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/6.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/7.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/8.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/9.jpg",
+      "https://sb-dataset.vercel.app/events/cs/e6/10.jpg"
+    ]
+  }
 ];

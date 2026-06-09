@@ -52,7 +52,7 @@ export interface Event {
   price?: string;
   venue: string;
   societyId: string;
-  status: 'upcoming' | 'past' | 'featured';
+  status: 'upcoming' | 'past' | 'featured' | 'legacy';
   banner: string;
   tags: string[];
   speakers?: Speaker[];

@@ -3,46 +3,53 @@ import { Event } from '../types';
 export const iesEvents: Event[] = [
   {
     id: "ies-e1",
-    slug: "ies-symposium",
-    title: "Industrial Electronics Symposium",
-    description: "Join us for an exciting day of learning, networking, and hands-on workshops with industry leaders in the field. This event brings together students and professionals to share ideas and innovate.",
-    date: "2027-02-10T09:00:00Z",
-    time: "10:00 AM - 04:00 PM",
+    slug: "circuit-nova",
+    title: "CIRCUIT NOVA",
+    description: "An electrifying event filled with cutting-edge projects, hands-on workshops, and inspiring talks!",
+    date: "2025-03-08T09:00:00Z",
     venue: "NSSCE Main Auditorium",
-    price: "Free",
-    societyId: "ies", // Fallback for execom
-    status: "upcoming",
-    banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
+    price: "Paid",
+    societyId: "ies",
+    status: "legacy",
+    banner: "https://sb-dataset.vercel.app/events/ies/e1/1.jpg",
     tags: ["Networking", "Workshop", "Tech"],
-    registrationUrl: "https://forms.gle/dummy-link-xyz",
+    registrationUrl: "https://bitly.cx/Ai7N",
     contacts: [
-      { name: "Volunteer 1", phone: "+91 98765 43210" },
-      { name: "Volunteer 2", phone: "+91 87654 32109" }
+      { name: "Lakshmi MG", phone: "+918547802227" },
+      { name: "Akhila A", phone: "+919995148907" }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop"
+      "https://sb-dataset.vercel.app/events/ies/e1/1.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/2.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/3.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/4.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/5.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/6.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/7.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/8.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/9.jpg",
+      "https://sb-dataset.vercel.app/events/ies/e1/10.jpg"
+    ]
+  },
+  {
+    id: "ies-e2",
+    slug: "online-debate-competition",
+    title: "Online Debate Competition",
+    description: "IEEE IES SBC NSSCE is conducting an exciting Online Debate Competition — a platform where curious minds meet, ideas clash, and voices rise. This is your chance to engage with like-minded peers, express your opinions, and grow through healthy discourse. Don’t hold back — speak up, stand out, and let your voice be heard! Prize Pool: ₹1000, Best For the Motion: ₹500, Best Against the Motion: ₹500",
+    date: "2025-08-16T09:00:00Z",
+    time:"07:00pm",
+    venue: "Online",
+    price: "Free",
+    societyId: "ies",
+    status: "legacy",
+    banner: "https://sb-dataset.vercel.app/events/ies/e2/1.jpg",
+    tags: ["Debate"],
+    contacts: [
+      { name: "Lakshmi", phone: "+918547802227" },
+      { name: "Vishnu", phone: "+918590481396" }
     ],
-    speakers: [
-      {
-        name: "Jane Doe",
-        designation: "Senior Engineer & Industry Expert",
-        bio: "Jane is an industry veteran with over a decade of experience and a passion for teaching and open-source contribution.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      },
-      {
-        name: "John Smith",
-        designation: "Technical Lead",
-        bio: "John leads the architecture team and specializes in scalable systems design and robust software engineering practices.",
-        photo: "https://sb-dataset.vercel.app/team/default.png"
-      }
-    ],
-    agenda: [
-      { time: "10:00 AM", title: "Inauguration & Keynote", description: "Opening remarks and keynote speech." },
-      { time: "11:00 AM", title: "Technical Session 1", description: "Deep dive into the latest industry trends." },
-      { time: "01:00 PM", title: "Lunch Break" },
-      { time: "02:00 PM", title: "Hands-on Workshop", description: "Interactive session building a real-world project." },
-      { time: "04:00 PM", title: "Closing Ceremony & Networking" }
-    ],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/ies/e2/1.jpg"
+    ]
   }
 ];

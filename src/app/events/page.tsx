@@ -108,8 +108,8 @@ export default function EventsPage() {
 
   const featuredEvents = useMemo(() => filteredEvents.filter(e => e.status === "featured"), [filteredEvents]);
   const upcomingEvents = useMemo(() => filteredEvents.filter(e => e.status === "upcoming"), [filteredEvents]);
-  const pastEvents = useMemo(() => filteredEvents.filter(e => e.status === "past" && new Date(e.date).getFullYear() > 2024), [filteredEvents]);
-  const legacyEvents = useMemo(() => filteredEvents.filter(e => e.status === "past" && new Date(e.date).getFullYear() <= 2024), [filteredEvents]);
+  const pastEvents = useMemo(() => filteredEvents.filter(e => e.status === "past"), [filteredEvents]);
+  const legacyEvents = useMemo(() => filteredEvents.filter(e => e.status === "legacy"), [filteredEvents]);
 
 
 
