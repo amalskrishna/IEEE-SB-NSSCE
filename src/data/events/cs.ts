@@ -110,5 +110,21 @@ export const csEvents: Event[] = [
       "https://sb-dataset.vercel.app/events/cs/e6/9.jpg",
       "https://sb-dataset.vercel.app/events/cs/e6/10.jpg"
     ]
+  },
+  {
+    id: "cs-e7",
+    slug: "lets-code",
+    title: "Let's Code - Daily Leetcode Challenge",
+    description: "The IEEE Computer Society SBC  NSSCE invites you to LetsCode , a continuous coding initiative aimed at strengthening problem-solving ability, algorithmic thinking, and consistency through daily LeetCode practice. Build your skills one problem at a time and equip yourself with strong coding proficiency for future challenges.",
+    date: "2026-02-22T09:00:00Z",
+    venue: "Online",
+    price: "20 Rs",
+    societyId: "cs", 
+    status: "past",
+    banner: "https://sb-dataset.vercel.app/events/cs/e7/1.jpg",
+    tags: ["Coding Competition"],
+    gallery: [
+      "https://sb-dataset.vercel.app/events/cs/e7/1.jpg"
+    ]
   }
 ];
