@@ -301,6 +301,7 @@ export default function TeamPage() {
                         alt={member.name}
                         fill
                         sizes="(max-width: 768px) 100vw, 300px"
+                        priority={index < 8}
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (

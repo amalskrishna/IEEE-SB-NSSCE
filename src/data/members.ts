@@ -238,6 +238,22 @@ export const members: Member[] = [
     year: 2026,
     photo: "https://sb-dataset.vercel.app/team/2026/MENTOR/AbhishekKM.jpg",
   },
+  {
+    id: "26mp9",
+    name: "Anandu",
+    position: "Mentor",
+    societyId: "mentor-panel",
+    year: 2026,
+    photo: "https://sb-dataset.vercel.app/team/2026/MENTOR/Anandu.jpg",
+  },
+  {
+    id: "26mp10",
+    name: "Sarath S",
+    position: "Mentor",
+    societyId: "mentor-panel",
+    year: 2026,
+    photo: "https://sb-dataset.vercel.app/team/2026/MENTOR/SarathS.jpg",
+  },
 
   //CSSociety 2026
   {

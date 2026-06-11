@@ -98,7 +98,13 @@ export default function GalleryPage() {
             >
               {/* Real image background */}
               <div className="absolute inset-0 bg-slate-100 group-hover:scale-105 transition-transform duration-700 ease-in-out border-b-2 border-black overflow-hidden">
-                <Image src={img.url} alt={`Gallery Image ${img.id}`} fill className="object-cover" />
+                <Image 
+                  src={img.url} 
+                  alt={`Gallery Image ${img.id}`} 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover" 
+                />
               </div>
 
               {/* Subtle hover overlay */}
@@ -137,7 +143,13 @@ export default function GalleryPage() {
               if (!img) return null;
               return (
                 <>
-                  <Image src={img.url} alt="Gallery Image" fill className="object-contain bg-black" />
+                  <Image 
+                    src={img.url} 
+                    alt="Gallery Image" 
+                    fill 
+                    sizes="100vw"
+                    className="object-contain bg-black" 
+                  />
                 </>
               );
             })()}

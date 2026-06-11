@@ -19,6 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ieeesbnssce.in"),
   title: {
     default: "IEEE SB NSSCE | Innovating Since 1987",
     template: "%s | IEEE SB NSSCE",
