@@ -96,7 +96,7 @@ export default function Footer() {
                 <ul className="space-y-4">
                   <li><a href="https://linkedin.com/company/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors font-medium">LinkedIn</a></li>
                   <li><a href="https://instagram.com/ieeesbnssce" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors font-medium">Instagram</a></li>
-                  <li><a href="mailto:ieee@nssce.ac.in" className="text-white/60 hover:text-white transition-colors font-medium">Email Us</a></li>
+                  <li><a href="mailto:ieeesbnssce@gmail.com" className="text-white/60 hover:text-white transition-colors font-medium">Email Us</a></li>
                 </ul>
               </div>
             </div>
