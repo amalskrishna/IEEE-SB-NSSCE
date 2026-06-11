@@ -6,6 +6,31 @@ import Link from "next/link";
 import Image from "next/image";
 import EventGallery from "@/components/events/EventGallery";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const event = events.find((e) => e.slug.toLowerCase() === slug.toLowerCase());
+
+  if (!event) return { title: 'Event Not Found' };
+
+  return {
+    title: event.title,
+    description: event.description.substring(0, 160),
+    openGraph: {
+      title: event.title,
+      description: event.description.substring(0, 160),
+      images: event.banner ? [{ url: event.banner }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: event.title,
+      description: event.description.substring(0, 160),
+      images: event.banner ? [event.banner] : [],
+    }
+  };
+}
+
 export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const event = events.find((e) => e.slug.toLowerCase() === slug.toLowerCase());

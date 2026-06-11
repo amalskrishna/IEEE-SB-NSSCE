@@ -6,6 +6,31 @@ import Link from "next/link";
 import { ArrowRight, Target, Eye, Calendar, Users } from "lucide-react";
 import Image from "next/image";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const society = societies.find(s => s.slug === slug);
+
+  if (!society) return { title: 'Society Not Found' };
+
+  return {
+    title: `${society.name}`,
+    description: society.description.substring(0, 160),
+    openGraph: {
+      title: society.name,
+      description: society.description.substring(0, 160),
+      images: society.logo ? [{ url: society.logo }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: society.name,
+      description: society.description.substring(0, 160),
+      images: society.logo ? [society.logo] : [],
+    }
+  };
+}
+
 export default async function SocietyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const society = societies.find(s => s.slug === slug);
