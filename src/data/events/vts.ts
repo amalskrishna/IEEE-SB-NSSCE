@@ -81,5 +81,31 @@ export const vtsEvents: Event[] = [
       "https://sb-dataset.vercel.app/events/vts/e4/8.jpg",
       "https://sb-dataset.vercel.app/events/vts/e4/9.jpg",
     ]
+  },
+  {
+    id: "vts-e5",
+    slug: "automotive-embedded-systems-talk-session",
+    title: "AUTOMOTIVE EMBEDDED SYSTEMS - Talk Session",
+    description: "IEEE VTS SBC NSSCE PRESENTS A talk session on: AUTOMOTIVE EMBEDDED SYSTEMS. The Invisible Intelligence Behind Every Modern Vehicle. Discover how modern vehicles sense, communicate, and make real-time decisions through microcontrollers, sensors, actuators, ECUs, and CAN technology.",
+    date: "2026-06-14T15:30:00Z",
+    venue: "Google Meet",
+    time: "7:00 PM - 8:00 PM",
+    price: "free",
+    societyId: "vts", 
+    status: "upcoming",
+    banner: "https://sb-dataset.vercel.app/events/vts/e5/1.jpg",
+    tags: ["Talk Session","Webinar"],
+    registrationUrl: "https://forms.gle/q3ZiRZCdoWWXNghE6",
+    gallery: [
+      "https://sb-dataset.vercel.app/events/vts/e5/1.jpg",
+    ],
+    speakers: [
+      {
+        name: "Neeraj Rajeev Menon",
+        designation: " B.Tech in Electrical & Electronics Engineering from CET",
+        bio: "Minor in Embedded Systems – IIT Mandi. Upcoming Firmware Engineer at Tismo, Bengaluru",
+        photo: "https://sb-dataset.vercel.app/events/vts/e5/2.jpg"
+      }
+    ]
   }
 ];
