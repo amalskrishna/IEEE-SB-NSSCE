@@ -136,7 +136,7 @@ export const csEvents: Event[] = [
     venue: "Online",
     price: "Free for IEEE CS Members/Lets Code participants and 20 Rs for others ",
     societyId: "cs", 
-    status: "upcoming",
+    status: "past",
     registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeoJdsjxa29YwqxtUrjeRceJ6Sbz0gZn9eStv_cx29frMEn4g/formResponse",
     banner: "https://sb-dataset.vercel.app/events/cs/e8/1.jpeg",
     tags: ["Coding","Leetcode"],
