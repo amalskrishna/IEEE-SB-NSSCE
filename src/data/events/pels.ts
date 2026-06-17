@@ -70,7 +70,28 @@ export const pelsEvents: Event[] = [
       { name: "Hiba", phone: "+919074336050" }
     ]
 
-},
+  },
+  {
+  id: "pels-e5",
+  slug: "smart-motor-control-systems",
+  title: "SMART MOTOR CONTROL SYSTEMS",
+  description: "IEEE PELS SBC NSSCE presents UNPLUGGED 2026, an online workshop on SMART MOTOR CONTROL SYSTEMS: FROM PWM TO PID. This session introduces the fundamentals of modern motor control, covering DC motor operation, PWM speed control, MOSFET switching, H-Bridge circuits, encoder feedback, and PID control. Participants will also experience a live Proteus simulation demonstrating real-world motor control concepts.Join us on 19 June 2026 at 7:00 PM for an engaging learning experience and gain practical insights into power electronics and control systems.",
+  date: "2026-06-19T13:30:00Z",
+  venue: "Online",
+  price: "Free",
+  societyId: "pels",
+  status: "upcoming",
+  registrationUrl:"https://forms.gle/ran6BfqZhw52x7wU9",
+  banner: "https://sb-dataset.vercel.app/events/pels/e5/smartmotorcontrol.jpeg",
+  tags: ["Smart Motor Control","PID control","PWM", "Competition", "IEEE PELS Day", "Power Electronics"],
+  gallery: [
+    "https://sb-dataset.vercel.app/events/pels/e5/smartmotorcontrol.jpeg"
+  ],
+  contacts: [
+      { name: "Anitha Joffy", phone: "+919747514412" },
+      { name: "Devanarayanan", phone: "+9177361 26511" }
+    ]
 
+  },
 
 ];
