@@ -97,7 +97,7 @@ export const pelsEvents: Event[] = [
       name: "Aswana N",
       designation: "4th year ECE Student, NSSCE",
       bio: "Aswana N is a 4th year student pursuing BTech in Electronics and Communication Engineering at NSSCE.",
-      photo: "https://sb-dataset.vercel.app/team/default.png"
+      photo: "https://sb-dataset.vercel.app/events/pels/e5/1.jpeg"
     }
     ]
   },
@@ -127,7 +127,7 @@ export const pelsEvents: Event[] = [
       name: "Neeraj Rajeev Menon",
       designation: "Firmware Engineer, Tismo, Bengaluru",
       bio: "B.Tech Electrical & Electronics Engineering, Minor in Embedded Systems – IIT Mandi.",
-      photo: "https://sb-dataset.vercel.app/team/default.png"
+      photo: "https://sb-dataset.vercel.app/events/pels/e6/1.jpeg"
     }
     ]
 
