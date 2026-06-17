@@ -59,6 +59,7 @@ export const pelsEvents: Event[] = [
   price: "Free",
   societyId: "pels",
   status: "upcoming",
+  registrationUrl:"https://forms.gle/M49ozueE5VtmQoGM6",
   banner: "https://sb-dataset.vercel.app/events/pels/e4/1.jpeg",
   tags: ["Poster Design", "Competition", "IEEE PELS Day", "Power Electronics"],
   gallery: [
