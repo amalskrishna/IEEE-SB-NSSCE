@@ -70,7 +70,67 @@ export const pelsEvents: Event[] = [
       { name: "Hiba", phone: "+919074336050" }
     ]
 
-},
+  },
+  {
+  id: "pels-e5",
+  slug: "smart-motor-control-systems",
+  title: "SMART MOTOR CONTROL SYSTEMS",
+  description: "IEEE PELS SBC NSSCE presents UNPLUGGED 2026, an online workshop on SMART MOTOR CONTROL SYSTEMS: FROM PWM TO PID. This session introduces the fundamentals of modern motor control, covering DC motor operation, PWM speed control, MOSFET switching, H-Bridge circuits, encoder feedback, and PID control. Participants will also experience a live Proteus simulation demonstrating real-world motor control concepts.Join us on 19 June 2026 at 7:00 PM for an engaging learning experience and gain practical insights into power electronics and control systems.",
+  date: "2026-06-19T13:30:00Z",
+  time: "7:00 pm",
+  venue: "Online",
+  price: "Free",
+  societyId: "pels",
+  status: "upcoming",
+  registrationUrl:"https://forms.gle/ran6BfqZhw52x7wU9",
+  banner: "https://sb-dataset.vercel.app/events/pels/e5/smartmotorcontrol.jpeg",
+  tags: ["Smart Motor Control","PID control","PWM", "IEEE PELS Day", "Power Electronics"],
+  gallery: [
+    "https://sb-dataset.vercel.app/events/pels/e5/smartmotorcontrol.jpeg"
+  ],
+  contacts: [
+      { name: "Anitha Joffy", phone: "+919747514412" },
+      { name: "Devanarayanan", phone: "+917736126511" }
+    ],
+  speakers: [
+    {
+      name: "Aswana N",
+      designation: "4th year ECE Student, NSSCE",
+      bio: "Aswana N is a 4th year student pursuing BTech in Electronics and Communication Engineering at NSSCE.",
+      photo: "https://sb-dataset.vercel.app/team/default.png"
+    }
+    ]
+  },
+  {
+  id: "pels-e6",
+  slug: "edge-ai-for-embedded-systems",
+  title: "EDGE AI FOR EMBEDDED SYSTEMS",
+  description: "From Smart Devices to Intelligent Systems. Explore the fundamentals of Edge AI and how intelligent decision-making can be integrated into embedded devices. This introductory session will cover key concepts, applications, and emerging opportunities in smart and connected systems.",
+  date: "2026-06-20T13:30:00Z",
+  time: "7:00 pm",
+  venue: "Online",
+  price: "Free",
+  societyId: "pels",
+  status: "upcoming",
+  registrationUrl:"https://forms.gle/9ucj44CBRzEBYDW5A",
+  banner: "https://sb-dataset.vercel.app/events/pels/e6/edgeai.jpeg",
+  tags: ["Edge ai","Embedded systems", "IEEE PELS Day", "Power Electronics"],
+  gallery: [
+    "https://sb-dataset.vercel.app/events/pels/e6/edgeai.jpeg"
+  ],
+  contacts: [
+      { name: "Sreedevi", phone: "+919074488903" },
+      { name: "Jenitta", phone: "+917736314239" }
+    ],
+    speakers: [
+    {
+      name: "Neeraj Rajeev Menon",
+      designation: "Firmware Engineer, Tismo, Bengaluru",
+      bio: "B.Tech Electrical & Electronics Engineering, Minor in Embedded Systems – IIT Mandi.",
+      photo: "https://sb-dataset.vercel.app/team/default.png"
+    }
+    ]
 
+  },
 
 ];
