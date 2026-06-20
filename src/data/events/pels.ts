@@ -81,7 +81,7 @@ export const pelsEvents: Event[] = [
   venue: "Online",
   price: "Free",
   societyId: "pels",
-  status: "upcoming",
+  status: "past",
   registrationUrl:"https://forms.gle/ran6BfqZhw52x7wU9",
   banner: "https://sb-dataset.vercel.app/events/pels/e5/smartmotorcontrol.jpeg",
   tags: ["Smart Motor Control","PID control","PWM", "IEEE PELS Day", "Power Electronics"],
