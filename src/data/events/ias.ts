@@ -62,7 +62,7 @@ export const iasEvents: Event[] = [
     venue: "Google Meet",
     price: "Free",
     societyId: "ias",
-    status: "upcoming",
+    status: "past",
     registrationUrl: "https://forms.gle/JJWSqAqbSxptreTL7",
     banner: "https://sb-dataset.vercel.app/events/ias/e3/1.jpeg",
     tags: ["Workshop", "Linux", "Command Line"],
